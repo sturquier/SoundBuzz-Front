@@ -19,9 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/startbootstrap-new-age/css/new-age.min.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/startbootstrap-new-age/js/new-age.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

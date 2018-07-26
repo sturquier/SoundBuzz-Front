@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 // App 
 import {routes} from './routes';
 import { AppComponent } from './app.component';
@@ -25,6 +27,7 @@ import { AsideComponent } from './account/additional/aside/aside.component';
   ],
   imports: [
     BrowserModule,
+    TooltipModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [],
