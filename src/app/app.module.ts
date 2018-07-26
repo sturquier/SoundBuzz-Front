@@ -13,6 +13,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponent } from './account/additional/header/header.component';
 import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AsideComponent } from './account/additional/aside/aside.component';
     LandingPageComponent,
     HeaderComponent,
     PlayerComponent,
-    AsideComponent
+    AsideComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
