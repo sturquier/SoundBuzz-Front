@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HeaderComponent } from './account/additional/header/header.component';
+import { PlayerComponent } from './account/additional/player/player.component';
+import { AsideComponent } from './account/additional/aside/aside.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AppComponent,
     HomeComponent,
     PlaylistsComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    HeaderComponent,
+    PlayerComponent,
+    AsideComponent
   ],
   imports: [
     BrowserModule,
