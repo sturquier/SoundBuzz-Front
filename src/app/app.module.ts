@@ -7,6 +7,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // App 
 import {routes} from './routes';
 import { AppComponent } from './app.component';
+import { AccountComponent } from './account/account.component';
 import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -25,7 +26,8 @@ import { NavComponent } from './nav/nav.component';
     HeaderComponent,
     PlayerComponent,
     AsideComponent,
-    NavComponent
+    NavComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
