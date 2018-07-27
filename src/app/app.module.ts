@@ -11,7 +11,6 @@ import { AccountComponent } from './account/account.component';
 import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { HeaderComponent } from './account/additional/header/header.component';
 import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
@@ -24,7 +23,6 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     PlaylistsComponent,
     LandingPageComponent,
-    HeaderComponent,
     PlayerComponent,
     AsideComponent,
     NavComponent,
