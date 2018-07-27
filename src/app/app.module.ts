@@ -14,6 +14,7 @@ import { HeaderComponent } from './account/additional/header/header.component';
 import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { NavComponent } from './nav/nav.component';
     HeaderComponent,
     PlayerComponent,
     AsideComponent,
-    NavComponent
+    NavComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
