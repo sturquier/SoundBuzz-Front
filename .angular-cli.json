@@ -24,7 +24,7 @@
         "styles.scss"
       ],
       "scripts": [
-        "../node_modules/startbootstrap-new-age/js/new-age.min.js"
+        "../node_modules/soundmanager2/script/soundmanager2-jsmin.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
