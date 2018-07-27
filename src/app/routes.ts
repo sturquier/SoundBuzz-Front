@@ -12,7 +12,7 @@ const routing: Routes = [
     	{ path: 'playlists', component:PlaylistsComponent }
     ]},
 
-    { path: '', component: LandingPageComponent}
+    { path: '', component: LandingPageComponent},
     { path: 'register', component: RegisterComponent}
 ]
 
