@@ -39,13 +39,21 @@
 						<input type="password" class="form-control" id="confirm" required> 
 					</div>
 				</div>
-				<div class="col-lg-5 my-auto">
+				<div class="col-lg-12 my-auto">
 					<div class="form-group">
 						<label for="radio">Etes-vous un artiste ? :</label>
-						<label class="radio-inline"><input type="radio" name="artiste">Oui</label>
-						<label class="radio-inline"><input type="radio" name="artiste" checked>Non</label>
+						<label class="radio-inline"><input type="radio" [(ngModel)]="artiste" [value]="true" name="artiste">Oui</label>
+						<label class="radio-inline"><input type="radio" [(ngModel)]="artiste" [value]="false" checked="checked"name="artiste" checked>Non</label>
 					</div>
 				</div>
+				<br>
+				<div class="col-lg-12 my-auto" *ngIf="artiste">Artiste ?
+					<div class="form-group">
+						<label for="nameartiste">Nom de l'artiste :</label>
+						<input type="text" class="form-control" id="nameartiste" required> 
+					</div>
+				</div>
+ 				<!-- <h2 *ngIf="!artiste">Pas artiste</h2> -->
 				<button type="submit" class="btn btn-success">Submit</button>
 			</div>
 	</form>
