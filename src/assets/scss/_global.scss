@@ -1,6 +1,7 @@
 .page {
 	padding-top: 4rem;
 	font-family: Lato,Helvetica,Arial,sans-serif;
+	font-weight: 300;
 }
 
 .logo {
@@ -13,4 +14,10 @@
 			color: orange;
 		}
 	} 
+}
+
+.btn {
+	.square {
+		border-radius: .25rem;
+	}
 }

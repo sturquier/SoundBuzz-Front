@@ -3,7 +3,14 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//Plugins
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { NgxSoundmanager2Module } from 'ngx-soundmanager2';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
 
 // App 
 import {routes} from './routes';
@@ -34,6 +41,8 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
+    NgxSoundmanager2Module.forRoot(),
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes)
   ],

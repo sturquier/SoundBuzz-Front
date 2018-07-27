@@ -1,3 +1,40 @@
-<figure id="audioplayer">
-	<audio controls src="24-ghosts-III.mp3" id="audiotrack"></audio>
-</figure>
+<div class="row">
+	<div class="col-7">
+		<p *ngIf="currentPlaying" class="">
+			Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentTrackPostion | humanTime }} / {{ currentTrackDuration | humanTime }})
+		</p>
+		<p *ngIf="!currentPlaying" class="">
+			David Guetta - Son de la mort qui tue
+		</p>
+		<div class="row align-items-center">
+			<div class="col-4">
+				<button class="btn btn-primary" playMusic>
+					<fa-icon [icon]="play" size="xs"></fa-icon>
+				</button>
+				<button class="btn btn-primary" pauseMusic>
+					<fa-icon [icon]="pause" size="xs"></fa-icon>
+				</button>
+				<button class="btn btn-primary" stopMusic>
+					<fa-icon [icon]="stop" size="xs"></fa-icon>
+				</button>
+			</div>
+			<div class="col-5 progress" style="height: 20px; width: 100%;">
+				<div class="progress-bar progress-bar-success"
+					role="progressbar"
+					[ngStyle]="{width : progress }">
+					<span class="sr-only"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-5">
+		<h5 class="">Volume: {{ volume }}</h5>
+		<button class="btn btn-primary" increaseVolume>+</button>
+		<button class="btn btn-primary" decreaseVolume>-</button>
+		<button class="btn btn-primary" muteMusic>Mute ({{ mute }})</button>
+	</div>
+	<div class="col-12">
+		<button class="btn btn-primary" repeatMusic>Repeat</button>
+		<button class="btn btn-primary" clearPlaylist>Clear Playlist</button>
+	</div>
+</div>
