@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service'
+import { GenreModel } from '../../../models/genre'
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+	genres: GenreModel[]
 
-  constructor() { }
+  	constructor(private homeService: HomeService) { }
 
-  ngOnInit() {
+  	ngOnInit() {
+  		this.homeService.loadAllGenres()
+  		this.homeService
+  			.subject
+  			.asObservable()
+  			.subscribe(genres => this.genres = genres)
   }
 
 }

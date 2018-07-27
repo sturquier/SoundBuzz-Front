@@ -12,23 +12,25 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fas);
 
-// App 
-import {routes} from './routes';
+// Routing 
+import { routes } from './routes';
+// Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
-import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
-
+// Modules
+import { HomeModule } from './account/home/home.module'
+// Services
+import { ApiService } from '../services/api.service'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     PlaylistsComponent,
     LandingPageComponent,
     PlayerComponent,
@@ -44,9 +46,12 @@ import { RegisterComponent } from './register/register.component';
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     TooltipModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HomeModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
