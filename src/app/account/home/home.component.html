@@ -1,4 +1,4 @@
 <h4>Page Parcourir</h4>
 <ul *ngFor='let genre of genres'>
-	<li>{{ genre.id }} - {{ genre.name }} - {{ genre.slug }}</li>
+	<li><a href="/account/musics/{{genre.slug}}">{{ genre.name }}</a></li>
 </ul>

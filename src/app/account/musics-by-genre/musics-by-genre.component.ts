@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 import { MusicsByGenreService } from './musics-by-genre.service'
 import { GenreModel } from '../../../models/genre'
 import { MusicModel } from '../../../models/music'
@@ -11,10 +12,18 @@ import { MusicModel } from '../../../models/music'
 export class MusicsByGenreComponent implements OnInit {
 	genre: GenreModel[]
 	musics: MusicModel[]
-	constructor(private musicsByGenreService: MusicsByGenreService) { }
+	slug: string
+	constructor(
+		private route: ActivatedRoute,
+		private musicsByGenreService: MusicsByGenreService
+	) { }
 
 	ngOnInit() {
-		this.musicsByGenreService.loadAllMusicsByGenre('electronique')
+		this.route.params.subscribe(params => {
+			this.slug = params.slug
+		})
+
+		this.musicsByGenreService.loadAllMusicsByGenre(this.slug)
 		this.musicsByGenreService
 			.subject
 			.asObservable()
