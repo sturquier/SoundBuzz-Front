@@ -25,6 +25,7 @@ import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
 // Modules
 import { HomeModule } from './account/home/home.module'
+import { MusicsByGenreModule } from './account/musics-by-genre/musics-by-genre.module'
 // Services
 import { ApiService } from '../services/api.service'
 
@@ -47,7 +48,8 @@ import { ApiService } from '../services/api.service'
     NgxSoundmanager2Module.forRoot(),
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
-    HomeModule
+    HomeModule,
+    MusicsByGenreModule,
   ],
   providers: [
     ApiService,

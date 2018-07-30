@@ -1,0 +1,5 @@
+<h4>Toutes les musiques du genre {{ genre.name }}</h4>
+<h5>Soit {{ musics.length }} pistes</h5>
+<ul *ngFor='let music of musics'>
+	<li>{{ music.title }}</li>
+</ul>
