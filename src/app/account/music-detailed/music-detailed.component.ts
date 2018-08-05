@@ -10,7 +10,7 @@ import { MusicModel } from '../../../models/music'
 })
 export class MusicDetailedComponent implements OnInit {
 	music: MusicModel[]
-	music_id: number
+	musicId: number
 
 	constructor(
 		private route: ActivatedRoute,
@@ -19,10 +19,10 @@ export class MusicDetailedComponent implements OnInit {
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
-			this.music_id = params.id
+			this.musicId = params.id
 		})
 
-		this.musicDetailedService.loadSingleMusic(this.music_id)
+		this.musicDetailedService.loadSingleMusic(this.musicId)
 		this.musicDetailedService
 			.subject
 			.asObservable()
