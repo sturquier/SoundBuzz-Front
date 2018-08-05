@@ -1,7 +1,6 @@
 <h4>Page Parcourir</h4>
 <ul *ngFor='let genre of genres'>
 	<li>
-		<!-- <a ng-href="/account/genres/{{genre.slug}}">{{ genre.name }}</a> -->
 		<a [routerLink]="['/account/genres', genre.slug]">{{ genre.name }}</a>
 	</li>
 </ul>

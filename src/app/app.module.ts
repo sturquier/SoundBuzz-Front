@@ -26,6 +26,7 @@ import { RegisterComponent } from './register/register.component';
 // Modules
 import { HomeModule } from './account/home/home.module'
 import { MusicsByGenreModule } from './account/musics-by-genre/musics-by-genre.module'
+import { MusicDetailedModule } from './account/music-detailed/music-detailed.module'
 // Services
 import { ApiService } from '../services/api.service'
 
@@ -50,6 +51,7 @@ import { ApiService } from '../services/api.service'
     RouterModule.forRoot(routes),
     HomeModule,
     MusicsByGenreModule,
+    MusicDetailedModule
   ],
   providers: [
     ApiService,
