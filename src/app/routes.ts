@@ -11,7 +11,7 @@ const routing: Routes = [
     { path: 'account', component: AccountComponent, children: [
     	{ path: '', component: HomeComponent },
     	{ path: 'playlists', component: PlaylistsComponent },
-    	{ path: 'musics/:slug', component: MusicsByGenreComponent }
+    	{ path: 'genres/:slug', component: MusicsByGenreComponent }
     ]},
 
     { path: '', component: LandingPageComponent},

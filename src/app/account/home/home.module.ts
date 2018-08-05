@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core'
 import { HttpModule } from '@angular/http'
 import { BrowserModule } from '@angular/platform-browser'
+import { RouterModule } from '@angular/router'
 import { HomeComponent } from './home.component'
 import { HomeService } from './home.service'
 
 @NgModule({
    imports: [
        BrowserModule,
-       HttpModule
+       HttpModule,
+       RouterModule
    ],
    entryComponents: [ HomeComponent ],
    declarations: [ HomeComponent ],
