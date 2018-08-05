@@ -1,7 +1,10 @@
+import { MusicModel } from './music'
+
 export interface GenreModel
 {
 	id: number,
 	name: string,
 	slug: string,
-	photo?: Object 
+	photo?: Object,
+	musics?: MusicModel  
 }
