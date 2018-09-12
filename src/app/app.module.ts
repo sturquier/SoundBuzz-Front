@@ -23,9 +23,11 @@ import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminComponent } from './admin/admin.component';
 // Modules
 import { HomeModule } from './account/home/home.module'
 import { MusicsByGenreModule } from './account/musics-by-genre/musics-by-genre.module'
+import { AdminMusicsModule } from './admin/musics/admin-musics.module'
 import { MusicDetailedModule } from './account/music-detailed/music-detailed.module'
 // Services
 import { ApiService } from '../services/api.service'
@@ -39,7 +41,8 @@ import { ApiService } from '../services/api.service'
     AsideComponent,
     NavComponent,
     RegisterComponent,
-    AccountComponent
+    AccountComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { ApiService } from '../services/api.service'
     RouterModule.forRoot(routes),
     HomeModule,
     MusicsByGenreModule,
-    MusicDetailedModule
+    MusicDetailedModule,
+    AdminMusicsModule
   ],
   providers: [
     ApiService,
