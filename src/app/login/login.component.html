@@ -1,0 +1,26 @@
+<app-nav></app-nav>
+
+<div class="container">
+
+	<div style="margin-top: 100px;"></div>
+
+	<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+			<div class="row">
+				<div class="col-lg-12 my-auto">
+					<div class="form-group">
+						<label for="email">Mail :</label>
+						<input formControlName="email" type="text" class="form-control" id="email" required> 
+					</div>
+				</div>
+				<div class="col-lg-12 my-auto">
+					<div class="form-group">
+						<label for="password">Mot de passe :</label>
+						<input formControlName="password" type="password" class="form-control" id="password" required> 
+					</div>
+				</div>
+				<br>
+				<button type="submit" class="btn btn-success">Se connecter</button>
+			</div>
+	</form>
+</div>
+
