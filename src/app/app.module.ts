@@ -24,6 +24,7 @@ import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 // Modules
 import { HomeModule } from './account/home/home.module'
 import { MusicsByGenreModule } from './account/musics-by-genre/musics-by-genre.module'
@@ -31,6 +32,7 @@ import { AdminMusicsModule } from './admin/musics/admin-musics.module'
 import { MusicDetailedModule } from './account/music-detailed/music-detailed.module'
 // Services
 import { ApiService } from '../services/api.service'
+import { LoginService } from './login/login.service'
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ApiService } from '../services/api.service'
     RegisterComponent,
     AccountComponent,
     AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { ApiService } from '../services/api.service'
   ],
   providers: [
     ApiService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

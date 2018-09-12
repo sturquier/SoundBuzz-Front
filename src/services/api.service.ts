@@ -15,4 +15,12 @@ export class ApiService
     get(url) {
         return this.http.get(this.apiUrl + url)
     }
+
+    post(url, body) {
+    	return this.http.post(this.apiUrl + url, body)
+    }
+
+    delete(url) {
+        return this.http.delete(this.apiUrl + url)
+    }
 }
