@@ -1,7 +1,14 @@
 <ul *ngFor='let music of musics'>
 	<li>
-		<!--<a [routerLink]="['/musics', music.id]">{{ music.title }}</a>--><a> Supprimer</a>
+		{{music}}
 	</li>
 </ul>
+<ul>
+  <li *ngFor="let music of musics | paginate: { itemsPerPage: 1, currentPage: p }">
+		{{music}}
+   </li>
+</ul>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 <router-outlet></router-outlet>

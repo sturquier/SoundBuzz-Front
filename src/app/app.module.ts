@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 //Plugins
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -50,6 +51,7 @@ import { LoginService } from './login/login.service'
   imports: [
     BrowserModule,
     FormsModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
