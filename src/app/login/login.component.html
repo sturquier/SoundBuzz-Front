@@ -4,21 +4,21 @@
 
 	<div style="margin-top: 100px;"></div>
 
-	<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+	<form [formGroup]="loginForm" (submit)="onLogin()">
 			<div class="row">
 				<div class="col-lg-12 my-auto">
 					<div class="form-group">
 						<label for="email">Mail :</label>
-						<input formControlName="email" type="text" class="form-control" id="email" required> 
+						<input type="text" formControlName="email" class="form-control" id="email" required> 
 					</div>
 				</div>
 				<div class="col-lg-12 my-auto">
 					<div class="form-group">
 						<label for="password">Mot de passe :</label>
-						<input formControlName="password" type="password" class="form-control" id="password" required> 
+						<input type="password" formControlName="password" class="form-control" id="password" required> 
 					</div>
 				</div>
-				<br>
+				<p *ngIf="submitted" style="color:red; width:100%;">{{ error.message }}</p>
 				<button type="submit" class="btn btn-success">Se connecter</button>
 			</div>
 	</form>
