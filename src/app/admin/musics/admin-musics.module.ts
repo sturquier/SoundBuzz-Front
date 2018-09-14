@@ -4,12 +4,18 @@ import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 import { AdminMusicsComponent } from './admin-musics.component'
 import { AdminMusicsService } from './admin-musics.service'
+import { CommonModule } from '@angular/common';  
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
    imports: [
        BrowserModule,
        HttpModule,
-       RouterModule
+       RouterModule,
+       CommonModule,
+       NgxPaginationModule,
+
    ],
    entryComponents: [ AdminMusicsComponent ],
    declarations: [ AdminMusicsComponent ],
