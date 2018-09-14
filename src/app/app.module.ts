@@ -10,7 +10,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSoundmanager2Module } from 'ngx-soundmanager2';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 library.add(fas);
 
@@ -40,6 +41,10 @@ import { MusicsComponent } from './account/musics/musics.component';
 import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
 import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
 
+// Services
+// TODO MOVE
+import { RegisterService } from './register/register.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,11 +72,14 @@ import { MusicsByGenreComponent } from './account/additional/musics-by-genre/mus
     NgxPaginationModule,
     HttpModule,
     TooltipModule.forRoot(),
+    RouterModule.forRoot(routes),
+    NgxMyDatePickerModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [
     ApiService,
     LoginService,
+    RegisterService,
     AdminService,
     HomeService,
     MusicDetailedService,
