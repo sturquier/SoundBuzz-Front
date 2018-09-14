@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
-import { ApiService } from '../../services/api.service'
-import { UserModel } from '../../models/user'
+import { ApiService } from './api.service'
+import { UserModel } from '../models/user'
 
 @Injectable()
 export class RegisterService

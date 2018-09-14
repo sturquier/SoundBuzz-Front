@@ -20,6 +20,7 @@ import { routes } from './routes';
 // Services
 import { ApiService } from '../services/api.service'
 import { LoginService } from '../services/login.service';
+import { RegisterService } from '../services/register.service'
 import { AdminService } from '../services/admin.service';
 import { HomeService } from '../services/home.service';
 import { MusicDetailedService } from '../services/music-detailed.service';
@@ -40,10 +41,6 @@ import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
 import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
 import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
-
-// Services
-// TODO MOVE
-import { RegisterService } from './register/register.service'
 
 @NgModule({
   declarations: [

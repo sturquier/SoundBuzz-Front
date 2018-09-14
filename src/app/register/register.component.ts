@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
-import { RegisterService } from './register.service'
-import { LoginService } from '../login/login.service' 
+import { RegisterService } from '../../services/register.service'
+import { LoginService } from '../../services/login.service' 
 
 @Component({
   	selector: 'app-register',
