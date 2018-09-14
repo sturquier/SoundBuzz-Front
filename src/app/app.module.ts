@@ -9,6 +9,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSoundmanager2Module } from 'ngx-soundmanager2';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 library.add(fas);
 
@@ -33,6 +34,7 @@ import { MusicDetailedModule } from './account/music-detailed/music-detailed.mod
 // Services
 import { ApiService } from '../services/api.service'
 import { LoginService } from './login/login.service'
+import { RegisterService } from './register/register.service'
 
 @NgModule({
   declarations: [
@@ -55,14 +57,16 @@ import { LoginService } from './login/login.service'
     NgxSoundmanager2Module.forRoot(),
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
+    NgxMyDatePickerModule.forRoot(),
     HomeModule,
     MusicsByGenreModule,
     MusicDetailedModule,
-    AdminMusicsModule
+    AdminMusicsModule,
   ],
   providers: [
     ApiService,
-    LoginService
+    LoginService,
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })
