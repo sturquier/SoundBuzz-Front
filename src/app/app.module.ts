@@ -10,6 +10,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgxSoundmanager2Module } from 'ngx-soundmanager2';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 library.add(fas);
 
@@ -63,6 +64,7 @@ import { MusicsByGenreComponent } from './account/additional/musics-by-genre/mus
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
+    NgxPaginationModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
