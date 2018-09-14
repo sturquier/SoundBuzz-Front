@@ -30,6 +30,7 @@
     "ngx-bootstrap": "^3.0.1",
     "ngx-datetime-picker": "^2.0.0",
     "ngx-mydatepicker": "^2.4.9",
+    "ngx-pagination": "^3.2.0",
     "ngx-soundmanager2": "^0.2.3",
     "rxjs": "^5.5.2",
     "startbootstrap-new-age": "^4.1.1",

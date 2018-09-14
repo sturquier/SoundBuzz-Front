@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
-import { ApiService } from '../../services/api.service'
-import { AuthTokenModel } from '../../models/authToken'
+import { ApiService } from './api.service'
+import { AuthTokenModel } from '../models/authToken'
 
 @Injectable()
 export class LoginService

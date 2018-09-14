@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
-import { ApiService } from '../../../services/api.service'
-import { GenreModel } from '../../../models/genre'
+import { ApiService } from './api.service'
+import { GenreModel } from '../models/genre'
 
 @Injectable()
-export class HomeService
+export class MusicsByGenreService
 {
 	subject: Subject<Array<GenreModel>> = new Subject()
 
@@ -13,13 +13,13 @@ export class HomeService
 	}
 
 	/**
-	 *	Fetch all genres
+	 *	Fetch all musics by specific genre slug
 	 */
-	loadAllGenres() {
+	loadAllMusicsByGenre(genreSlug: string) {
 		return new Promise((resolve, reject) => {
 			this
 				.apiService
-				.get('/genres')
+				.get(`/genres/${genreSlug}`)
 				.subscribe(response => {
 					this.subject.next(response.json())
 					resolve(response.json())

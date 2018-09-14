@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 //Plugins
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -10,11 +11,19 @@ import { NgxSoundmanager2Module } from 'ngx-soundmanager2';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 library.add(fas);
 
 // Routing 
 import { routes } from './routes';
+// Services
+import { ApiService } from '../services/api.service'
+import { LoginService } from '../services/login.service';
+import { AdminService } from '../services/admin.service';
+import { HomeService } from '../services/home.service';
+import { MusicDetailedService } from '../services/music-detailed.service';
+import { MusicsByGenreService } from '../services/musics-by-genre.service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -23,17 +32,17 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './account/home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
-// Modules
-import { HomeModule } from './account/home/home.module'
-import { MusicsByGenreModule } from './account/musics-by-genre/musics-by-genre.module'
-import { AdminMusicsModule } from './admin/musics/admin-musics.module'
-import { MusicDetailedModule } from './account/music-detailed/music-detailed.module'
+import { MusicsComponent } from './account/musics/musics.component';
+import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
+import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
+
 // Services
-import { ApiService } from '../services/api.service'
-import { LoginService } from './login/login.service'
+// TODO MOVE
 import { RegisterService } from './register/register.service'
 
 @NgModule({
@@ -45,9 +54,14 @@ import { RegisterService } from './register/register.service'
     AsideComponent,
     NavComponent,
     RegisterComponent,
+    HomeComponent,
     AccountComponent,
     AdminComponent,
-    LoginComponent
+    AdminMusicsComponent,
+    LoginComponent,
+    MusicsComponent,
+    MusicDetailedComponent,
+    MusicsByGenreComponent
   ],
   imports: [
     BrowserModule,
@@ -55,18 +69,20 @@ import { RegisterService } from './register/register.service'
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
+    NgxPaginationModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
     NgxMyDatePickerModule.forRoot(),
-    HomeModule,
-    MusicsByGenreModule,
-    MusicDetailedModule,
-    AdminMusicsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     ApiService,
     LoginService,
-    RegisterService
+    RegisterService,
+    AdminService,
+    HomeService,
+    MusicDetailedService,
+    MusicsByGenreService
   ],
   bootstrap: [AppComponent]
 })

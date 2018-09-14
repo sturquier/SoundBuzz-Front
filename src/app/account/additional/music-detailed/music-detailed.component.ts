@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { MusicDetailedService } from './music-detailed.service'
-import { MusicModel } from '../../../models/music'
+import { MusicDetailedService } from '../../../../services/music-detailed.service'
+import { MusicModel } from '../../../../models/music'
 
 @Component({
   selector: 'music-detailed',

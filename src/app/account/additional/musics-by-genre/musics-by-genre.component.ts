@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { MusicsByGenreService } from './musics-by-genre.service'
-import { GenreModel } from '../../../models/genre'
+import { MusicsByGenreService } from '../../../../services/musics-by-genre.service'
+import { GenreModel } from '../../../../models/genre'
 
 @Component({
   selector: 'musics-by-genre',

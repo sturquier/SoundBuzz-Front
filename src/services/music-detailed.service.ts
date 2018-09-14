@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
-import { ApiService } from '../../../services/api.service'
-import { MusicModel } from '../../../models/music'
+import { ApiService } from './api.service'
+import { MusicModel } from '../models/music'
 
 @Injectable()
-export class AdminMusicsService
+export class MusicDetailedService
 {
 	subject: Subject<Array<MusicModel>> = new Subject()
 
@@ -13,13 +13,13 @@ export class AdminMusicsService
 	}
 
 	/**
-	 *	Fetch all musics
+	 *	Fetch a single music by specific music id
 	 */
-	loadAllMusics() {
+	loadSingleMusic(musicId: number) {
 		return new Promise((resolve, reject) => {
 			this
 				.apiService
-				.get(`/genres/`)
+				.get(`/musics/${musicId}`)
 				.subscribe(response => {
 					this.subject.next(response.json())
 					resolve(response.json())
