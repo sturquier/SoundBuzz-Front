@@ -23,14 +23,16 @@ export class LoginService
 					email: email,
 					password: password
 				})
-				.subscribe(response => {
-					this.subject.next(response.json())
-					resolve(response.json())
-				}),
-				error => {
-					this.subject.error(error.json())
-					reject(error)
-				}
+				.subscribe(
+					(response) => {
+						this.subject.next(response.json())
+						resolve(response.json())
+					},
+					(error) => {
+						this.subject.error(error.json())
+						reject(error)
+					}
+				)
 		})
 	}
 

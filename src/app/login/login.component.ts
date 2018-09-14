@@ -12,6 +12,8 @@ import { LoginService } from './login.service'
 export class LoginComponent implements OnInit {
 
 	loginForm: FormGroup;
+	error = "";
+	submitted = false;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -29,6 +31,8 @@ export class LoginComponent implements OnInit {
   	}
 
   	onLogin() {
+  		this.submitted = true;
+
 		this.loginService.loginUser(
 			this.loginForm.controls.email.value,
 			this.loginForm.controls.password.value
@@ -37,10 +41,16 @@ export class LoginComponent implements OnInit {
 		this.loginService
 			.subject
 			.asObservable()
-			.subscribe((currentUser) => {
-				localStorage.setItem('currentUser', JSON.stringify(currentUser))
-				this.router.navigate(['/account'])
-			})
+			.subscribe(
+				(result) => {
+					localStorage.setItem('currentUser', JSON.stringify(result))
+					this.router.navigate(['/account'])
+				},
+				(error) => {
+					this.error = error
+					console.log(this.error)
+				}
+			)
   	}
 
 }
