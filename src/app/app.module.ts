@@ -41,6 +41,10 @@ import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
 import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
 import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
+import { AddMusicComponent } from './account/musics/add-music/add-music.component';
+import { AllMusicsComponent } from './account/musics/all-musics/all-musics.component';
+import { AllPlaylistsComponent } from './account/playlists/all-playlists/all-playlists.component';
+import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playlist.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { MusicsByGenreComponent } from './account/additional/musics-by-genre/mus
     LoginComponent,
     MusicsComponent,
     MusicDetailedComponent,
-    MusicsByGenreComponent
+    MusicsByGenreComponent,
+    AddMusicComponent,
+    AllMusicsComponent,
+    AllPlaylistsComponent,
+    AddPlaylistComponent
   ],
   imports: [
     BrowserModule,
