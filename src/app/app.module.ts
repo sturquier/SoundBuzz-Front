@@ -14,6 +14,13 @@ library.add(fas);
 
 // Routing 
 import { routes } from './routes';
+// Services
+import { ApiService } from '../services/api.service'
+import { LoginService } from '../services/login.service';
+import { AdminService } from '../services/admin.service';
+import { HomeService } from '../services/home.service';
+import { MusicDetailedService } from '../services/music-detailed.service';
+import { MusicsByGenreService } from '../services/musics-by-genre.service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -22,17 +29,14 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PlayerComponent } from './account/additional/player/player.component';
 import { AsideComponent } from './account/additional/aside/aside.component';
 import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './account/home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
-// Modules
-import { HomeModule } from './account/home/home.module'
-import { MusicsByGenreModule } from './account/musics-by-genre/musics-by-genre.module'
-import { AdminMusicsModule } from './admin/musics/admin-musics.module'
-import { MusicDetailedModule } from './account/music-detailed/music-detailed.module'
-// Services
-import { ApiService } from '../services/api.service'
-import { LoginService } from './login/login.service'
+import { MusicsComponent } from './account/musics/musics.component';
+import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
+import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +47,14 @@ import { LoginService } from './login/login.service'
     AsideComponent,
     NavComponent,
     RegisterComponent,
+    HomeComponent,
     AccountComponent,
     AdminComponent,
-    LoginComponent
+    AdminMusicsComponent,
+    LoginComponent,
+    MusicsComponent,
+    MusicDetailedComponent,
+    MusicsByGenreComponent
   ],
   imports: [
     BrowserModule,
@@ -54,15 +63,15 @@ import { LoginService } from './login/login.service'
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     TooltipModule.forRoot(),
-    RouterModule.forRoot(routes),
-    HomeModule,
-    MusicsByGenreModule,
-    MusicDetailedModule,
-    AdminMusicsModule
+    RouterModule.forRoot(routes)
   ],
   providers: [
     ApiService,
-    LoginService
+    LoginService,
+    AdminService,
+    HomeService,
+    MusicDetailedService,
+    MusicsByGenreService
   ],
   bootstrap: [AppComponent]
 })

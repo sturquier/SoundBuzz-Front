@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicModel } from '../../../models/music'
-import { AdminMusicsService } from './admin-musics.service'
+import { AdminService } from '../../../services/admin.service'
 
 
 @Component({
@@ -12,12 +12,12 @@ export class AdminMusicsComponent implements OnInit {
 	music: MusicModel[]
 	
   constructor(
-  	private adminMusicsService: AdminMusicsService
+  	private adminService: AdminService
   	) {  }
 
   ngOnInit() {
-  	this.adminMusicsService.loadAllMusics();
-  	this.adminMusicsService
+  	this.adminService.loadAllMusics();
+  	this.adminService
 			.subject
 			.asObservable()
 			.subscribe((music) => {
