@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpModule } from '@angular/http'
 
 //Plugins
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -65,6 +65,7 @@ import { MusicsByGenreComponent } from './account/additional/musics-by-genre/mus
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     NgxPaginationModule,
+    HttpModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
