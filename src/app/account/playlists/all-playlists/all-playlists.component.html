@@ -1,4 +1,11 @@
-<p>
-  all-playlists works!
-</p>
-<a [routerLink]="['add']" class="btn">Add playlist</a>
+<h4>Mes playlists</h4>
+<hr>
+<ul *ngFor='let playlist of myPlaylists'>
+	<li>{{ playlist.name }}</li>
+	<!-- <p>{{ playlist|json }}</p> -->
+	<ul *ngFor='let music of playlist.musics'>
+		<li>{{ music.title }} ------- {{ music.duration }} secondes</li>
+	</ul>
+</ul>
+
+<a [routerLink]="['add']" class="btn">Ajouter playlist</a>
