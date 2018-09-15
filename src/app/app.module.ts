@@ -50,6 +50,7 @@ import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playl
 import { ProfileComponent } from './account/profile/profile.component'
 // Guards
 import { LoggedInGuard } from './auth/guards/loggedIn.guard'
+import { IsAdminGuard } from './auth/guards/isAdmin.guard'
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { LoggedInGuard } from './auth/guards/loggedIn.guard'
   ],
   providers: [
     LoggedInGuard,
+    IsAdminGuard,
     ApiService,
     LoginService,
     RegisterService,

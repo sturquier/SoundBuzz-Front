@@ -19,6 +19,7 @@ import { AddMusicComponent } from './account/musics/add-music/add-music.componen
 import { ProfileComponent } from './account/profile/profile.component';
 // Guards
 import { LoggedInGuard } from './auth/guards/loggedIn.guard';
+import { IsAdminGuard } from './auth/guards/isAdmin.guard';
 
 const routing: Routes = [
     { path: 'account', component: AccountComponent, canActivate: [LoggedInGuard], children: [
@@ -38,7 +39,7 @@ const routing: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard], children: [
+    { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard, IsAdminGuard], children: [
     	{ path: 'musics', component: AdminMusicsComponent },
     ]},
 ]
