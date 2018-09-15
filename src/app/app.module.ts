@@ -48,6 +48,8 @@ import { AllMusicsComponent } from './account/musics/all-musics/all-musics.compo
 import { AllPlaylistsComponent } from './account/playlists/all-playlists/all-playlists.component';
 import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playlist.component';
 import { ProfileComponent } from './account/profile/profile.component'
+// Guards
+import { LoggedInGuard } from './auth/guards/loggedIn.guard'
 
 @NgModule({
   declarations: [
@@ -86,6 +88,7 @@ import { ProfileComponent } from './account/profile/profile.component'
     RouterModule.forRoot(routes)
   ],
   providers: [
+    LoggedInGuard,
     ApiService,
     LoginService,
     RegisterService,

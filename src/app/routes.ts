@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
+// Components
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
@@ -16,9 +17,11 @@ import { MusicsComponent } from './account/musics/musics.component';
 import { AllMusicsComponent } from './account/musics/all-musics/all-musics.component';
 import { AddMusicComponent } from './account/musics/add-music/add-music.component';
 import { ProfileComponent } from './account/profile/profile.component';
+// Guards
+import { LoggedInGuard } from './auth/guards/loggedIn.guard';
 
 const routing: Routes = [
-    { path: 'account', component: AccountComponent, children: [
+    { path: 'account', component: AccountComponent, canActivate: [LoggedInGuard], children: [
     	{ path: '', component: HomeComponent },
     	{ path: 'playlists', component: PlaylistsComponent, children: [
             { path: '', component: AllPlaylistsComponent },
@@ -35,7 +38,7 @@ const routing: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'admin', component: AdminComponent, children: [
+    { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard], children: [
     	{ path: 'musics', component: AdminMusicsComponent },
     ]},
 ]
