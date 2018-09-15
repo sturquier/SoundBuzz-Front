@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
 import { ApiService } from './api.service'
 import { AuthTokenModel } from '../models/authToken'
+import { UserService } from './user.service'
 
 @Injectable()
 export class LoginService
 {
 	subject: Subject<Array<AuthTokenModel>> = new Subject()
 
-	constructor(private apiService: ApiService) {
+	constructor(private apiService: ApiService, private userService: UserService) {
 
 	}
 
@@ -40,7 +41,7 @@ export class LoginService
 	 *	Logout a single user. Remove his token from database
 	 */
 	logoutUser() {
-		const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+		const currentUser = this.userService.getCurrentUser()
 
 		return new Promise((resolve, reject) => {
 			this

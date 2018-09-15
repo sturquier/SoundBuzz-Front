@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker';
 import { RegisterService } from '../../services/register.service'
 import { LoginService } from '../../services/login.service' 
+import { UserService } from '../../services/user.service'
 
 @Component({
   	selector: 'app-register',
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
   		private router: Router,
   		private registerService: RegisterService,
   		private loginService: LoginService,
+      private userService: UserService
   	) { }
 
   	ngOnInit() {
@@ -60,7 +62,7 @@ export class RegisterComponent implements OnInit {
   						this.registerForm.controls.email.value,
   						this.registerForm.controls.password.value
   					).then(result => {
-  						localStorage.setItem('currentUser', JSON.stringify(result))
+  					  this.userService.setCurrentUser(result)
   						this.router.navigate(['/account'])
   					})
   				},

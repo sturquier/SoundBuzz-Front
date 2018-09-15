@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { LoginService } from '../../services/login.service'
+import { UserService } from '../../services/user.service'
 
 @Component({
   	selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private router: Router,
-		private loginService: LoginService
+		private loginService: LoginService,
+		private userService: UserService
 	) { }
 
   	ngOnInit() {
@@ -43,7 +45,7 @@ export class LoginComponent implements OnInit {
 			.asObservable()
 			.subscribe(
 				(result) => {
-					localStorage.setItem('currentUser', JSON.stringify(result))
+					this.userService.setCurrentUser(result)
 					this.router.navigate(['/account'])
 				},
 				(error) => {

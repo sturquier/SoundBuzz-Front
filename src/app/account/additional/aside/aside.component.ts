@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { LoginService } from '../../../../services/login.service'
+import { UserService } from '../../../../services/user.service'
 
 @Component({
   	selector: 'app-aside',
@@ -12,7 +13,8 @@ export class AsideComponent implements OnInit {
 
   	constructor(
   		private router: Router,
-  		private loginService: LoginService
+  		private loginService: LoginService,
+      private userService: UserService
   	) { }
 
   	ngOnInit() {
@@ -24,7 +26,7 @@ export class AsideComponent implements OnInit {
   			.subject
   			.asObservable()
   			.subscribe(() => {
-  				localStorage.removeItem('currentUser')
+  				this.userService.setCurrentUser(null)
   				this.router.navigate(['/'])
   			})
   	}
