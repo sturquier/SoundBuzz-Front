@@ -25,6 +25,7 @@ import { AdminService } from '../services/admin.service';
 import { HomeService } from '../services/home.service';
 import { MusicDetailedService } from '../services/music-detailed.service';
 import { MusicsByGenreService } from '../services/musics-by-genre.service';
+import { UserService } from '../services/user.service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -88,7 +89,8 @@ import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playl
     AdminService,
     HomeService,
     MusicDetailedService,
-    MusicsByGenreService
+    MusicsByGenreService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })
