@@ -47,6 +47,7 @@ import { AddMusicComponent } from './account/musics/add-music/add-music.componen
 import { AllMusicsComponent } from './account/musics/all-musics/all-musics.component';
 import { AllPlaylistsComponent } from './account/playlists/all-playlists/all-playlists.component';
 import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playlist.component';
+import { ProfileComponent } from './account/profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playl
     AddMusicComponent,
     AllMusicsComponent,
     AllPlaylistsComponent,
-    AddPlaylistComponent
+    AddPlaylistComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

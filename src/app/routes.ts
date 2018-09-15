@@ -15,6 +15,7 @@ import { MusicDetailedComponent } from './account/additional/music-detailed/musi
 import { MusicsComponent } from './account/musics/musics.component';
 import { AllMusicsComponent } from './account/musics/all-musics/all-musics.component';
 import { AddMusicComponent } from './account/musics/add-music/add-music.component';
+import { ProfileComponent } from './account/profile/profile.component';
 
 const routing: Routes = [
     { path: 'account', component: AccountComponent, children: [
@@ -28,16 +29,16 @@ const routing: Routes = [
             { path: '', component: AllMusicsComponent },
             { path: 'add', component: AddMusicComponent },
             { path: ':id', component: MusicDetailedComponent }
-        ] }
+        ] },
+        { path: 'profile', component: ProfileComponent },
     ]},
-
     { path: '', component: LandingPageComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'admin', component: AdminComponent, children: [
     	{ path: 'musics', component: AdminMusicsComponent },
-    	
     ]},
-    { path: 'login', component: LoginComponent }]
+]
     
 
 export const routes = routing;
