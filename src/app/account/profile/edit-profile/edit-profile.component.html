@@ -1,1 +1,45 @@
 <h4>Editer mon profil</h4>
+
+<div class="container">
+	
+	<form [formGroup]="editProfileForm" (submit)="onEditProfile()">
+		<div class="row">
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="firstname">Prénom :</label>
+					<input type="text" formControlName="firstname" class="form-control" id="firstname" required [(ngModel)]="currentUser.user.firstname">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="lastname">Nom :</label>
+					<input type="text" formControlName="lastname" class="form-control" id="lastname" required [(ngModel)]="currentUser.user.lastname">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="username">Pseudo :</label>
+					<input type="text" formControlName="username" class="form-control" id="username" required [(ngModel)]="currentUser.user.username">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="email">Email :</label>
+					<input type="text" formControlName="email" class="form-control" id="email" required [(ngModel)]="currentUser.user.email">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group input-group">
+					<input type="text" formControlName="birthday" class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
+            	   	[options]="myOptions" #dp="ngx-mydatepicker" [(ngModel)]="currentUser.user.birthday"/>
+        			<span class="input-group-btn">
+            			<button type="button" class="btn btn-default" (click)="dp.toggleCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
+        			</span>
+				</div>
+			</div>
+			<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
+			<button type="submit" class="btn btn-success">Modifier</button>
+		</div>
+	</form>
+
+</div>

@@ -27,6 +27,7 @@ import { MusicDetailedService } from '../services/music-detailed.service';
 import { MusicsByGenreService } from '../services/musics-by-genre.service';
 import { UserService } from '../services/user.service';
 import { MyPlaylistsService } from '../services/my-playlists.service';
+import { MyProfileService } from '../services/my-profile.service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -104,6 +105,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     MusicsByGenreService,
     UserService,
     MyPlaylistsService,
+    MyProfileService,
   ],
   bootstrap: [AppComponent]
 })
