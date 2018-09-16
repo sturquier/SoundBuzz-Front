@@ -17,6 +17,8 @@ import { MusicsComponent } from './account/musics/musics.component';
 import { AllMusicsComponent } from './account/musics/all-musics/all-musics.component';
 import { AddMusicComponent } from './account/musics/add-music/add-music.component';
 import { ProfileComponent } from './account/profile/profile.component';
+import { ViewProfileComponent } from './account/profile/view-profile/view-profile.component';
+import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
 // Guards
 import { LoggedInGuard } from './auth/guards/loggedIn.guard';
 import { IsAdminGuard } from './auth/guards/isAdmin.guard';
@@ -34,7 +36,10 @@ const routing: Routes = [
             { path: 'add', component: AddMusicComponent },
             { path: ':id', component: MusicDetailedComponent }
         ] },
-        { path: 'profile', component: ProfileComponent },
+        { path: 'profile', component: ProfileComponent, children: [
+            { path: '', component: ViewProfileComponent },
+            { path: 'edit', component: EditProfileComponent }
+        ] },
     ]},
     { path: '', component: LandingPageComponent },
     { path: 'register', component: RegisterComponent },

@@ -48,6 +48,8 @@ import { AllMusicsComponent } from './account/musics/all-musics/all-musics.compo
 import { AllPlaylistsComponent } from './account/playlists/all-playlists/all-playlists.component';
 import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playlist.component';
 import { ProfileComponent } from './account/profile/profile.component'
+import { ViewProfileComponent } from './account/profile/view-profile/view-profile.component';
+import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
 // Guards
 import { LoggedInGuard } from './auth/guards/loggedIn.guard'
 import { IsAdminGuard } from './auth/guards/isAdmin.guard'
@@ -73,7 +75,9 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AllMusicsComponent,
     AllPlaylistsComponent,
     AddPlaylistComponent,
-    ProfileComponent
+    ProfileComponent,
+    ViewProfileComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

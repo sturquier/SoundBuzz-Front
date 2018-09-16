@@ -1,0 +1,9 @@
+<h4>Mon profil</h4>
+
+<p>Prenom Nom : {{ currentUser.user.firstname }} {{ currentUser.user.lastname }}</p>
+<p>Pseudo : {{ currentUser.user.username }}</p>
+<p>Inscrit le : {{ currentUser.user.created_at }}</p>
+<p>Né(e) le : {{ currentUser.user.birthday }}</p>
+<p>Adresse email : {{ currentUser.user.email }}</p>
+
+<a [routerLink]="['edit']" class="btn">Editer</a>
