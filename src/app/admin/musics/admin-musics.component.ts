@@ -12,9 +12,6 @@ import { AdminService } from '../../../services/admin.service'
 export class AdminMusicsComponent implements OnInit {
 	musics: MusicModel[]
 	p: number = 1;
-	// musics=[];
-	// listmusics= ['test','lol','lal'];
-	test=0;
   constructor(
   	private adminService: AdminService
   	) {  }
