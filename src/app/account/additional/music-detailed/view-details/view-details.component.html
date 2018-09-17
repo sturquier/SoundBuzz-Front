@@ -1,17 +1,48 @@
-<h4>Musique {{ music.title }}</h4>
-<p>Description : {{ music.description }}</p>
-<p>Duree : {{ music.duration }}</p>
-<p>Contenu explicite : {{ music.is_explicit }}</p>
-<p>Téléchargeable : {{ music.downloadable }}</p>
+<div class="row">
+	<div class="col-md-2">
+		<!--Insérer image ici-->
+	</div>
+	<div class="col-md-5">
+		<p><b>Musique : </b>{{ music.title }}</p>
 
-<p>Genre(s) :</p>
-<ul *ngFor="let genre of music.genres">
-	<li>{{ genre.name }}</li>
-</ul>
+		<p><b>Artiste(s) : </b></p>
+		<ul *ngFor="let artist of music.artists">
+			<li>{{ artist.name }}</li>
+		</ul>
 
-<p>Artiste(s)</p>
-<ul *ngFor="let artist of music.artists">
-	<li>{{ artist.name }}</li>
-</ul>
+		<p><b>Description : </b>{{ music.description }}</p>
+		<p><b>Genre(s) : </b></p>
+		<ul *ngFor="let genre of music.genres">
+			<li>{{ genre.name }}</li>
+		</ul>
+		<p><b>Durée : </b>{{ minutes() }} Minutes {{ music.duration % 60 }} secondes</p>
+		<p><b>Contenu explicite : </b>{{ music.is_explicit }}</p>
+		<p><b>Ajoutée le : </b>{{ music.transfer_at }}</p>
 
-<a [routerLink]="['add-comment']" class="btn">Ajouter un commentaire</a>
+		<a [routerLink]="['add-comment']" class="btn">Ajouter un commentaire</a>
+	</div>
+	<div class="col-md-5">
+		<div class="row">
+			<div class="col-md-6 alignement">
+				Ecouter
+				<br>
+				<fa-icon [icon]="headphones" size="2x"></fa-icon>
+			</div>
+			<div class="col-md-6 alignement">
+				Télécharger
+				<br>
+				<fa-icon [icon]="download" size="2x"></fa-icon>
+			</div>
+			<div class="col-md-6 alignement">
+				J'aime
+				<br>
+				<fa-icon [icon]="heart" size="2x"></fa-icon>
+			</div>
+			<div class="col-md-6 alignement">
+				Ajouter à une playlist
+				<br>
+				<fa-icon [icon]="plusSquare" size="2x"></fa-icon>
+			</div>
+		</div>
+	</div>
+</div>
