@@ -1,84 +1,60 @@
-<div [formGroup]="musicForm" (submit)='submit(musicForm)'>
-  <h2>{{ 'ADD_MUSIC' }}</h2>
+<div class="container">
+  	<h4>Ajouter une musique</h4>
 
-  <div class="form-group">
-    <label for="title">{{'TITLE'}}</label>
-    <input type="text" name="title" id="title"  class="form-control" formControlName="title">
-  </div>
-  <div class="form-group">
-    <label for="description">{{'DESCRIPTION'}}</label>
-    <input type="text" name="description" id="description"  class="form-control" formControlName="description">
-  </div>
-  <div class="form-group">
-    <label for="file">{{'FILE'}}</label>
-    <input type="text" name="file" id="file"  class="form-control" formControlName="file">
-  </div>
-  <div class="form-group">
-    <label for="photo">{{'PHOTO'}}</label>
-    <input type="text" name="photo" class="form-control" formControlName="photo">
-  </div>
-  <div class="form-group">
-    <label for="is_explicit">{{'IS_EXPLICIT'}}</label>
-    <input type="radio" name="is_explicit" class="form-control" value='True' formControlName="is_explicit"> Oui
-    <input type="radio" name="is_explicit" class="form-control" value='False' formControlName="is_explicit"> Non
-  </div>
-  <button type="submit">Valider</button>
-  <!-- <div class="form-group">
-    <label for="is_representative">{{'LEGAL_REPRESENTATIVE' | translate}}</label>
-    <div class="">
-      <input id="is_representative" (change)='onRepresentative()' class="form-control" type="radio" [value]="true" formControlName="is_representative" />
-      <span class="radio-text">{{'YES' | translate}}</span>
-    </div>
-    <div class="">
-      <input id="is_representative" (change)='onRepresentative()' class="form-control" type="radio" [value]="false" formControlName="is_representative" /> 
-      <span class="radio-text">{{'NO' | translate }}</span>
-    </div>
-  </div>
-
-
-  <div class="">
-  <ng-template [ngIf]="userForm.value.is_representative">
-    <label for="kyc">{{'ID' | translate}}</label>
-	<input id="kyc" class="form-control" type="file" formControlName="kyc"> 		
-    <div class="form-theme drop-container block_cloud" [options]='options' ngFileDrop 
-         (uploadOutput)="onUploadOutput($event)"
-         [uploadInput]="uploadInput"
-         [ngClass]="{'drag-over': dragOver,'uploading':loading}">
-      <img class='kyc-upload' src="/assets/img/icons_cloud.png">
-      <p class="w-100">
-       {{"DROP_FILE" | translate }}
-        <label class="upload-button">
-        <input type="file" ngFileSelect name="kyc" [options]='options' accept=".png,.jpeg,.pdf" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" class="form-theme" required> 
-        {{"SELECT_FILE" | translate }}
-        </label>
-        <small>{{"TYPE_FILE" | translate }}</small>
-      </p>
-      <p class="error-kyc" *ngIf="error">{{"ERROR" | translate }}</p>
-
-      <p class="filename" *ngFor='let f of files'> {{f.name}} <a class="delete" (click)="removeFile(f.id)">supprimer</a></p>
-    </div>
-    <div *ngIf="loading" class="loading-group text-center">
-      <div class="loading upload">
-        <span *ngIf="progress.data">{{progress.data.percentage}}%</span>
-        <p class="loader"></p>
-      </div>
-    </div>
-  </ng-template>
-  <ng-template [ngIf]="!userForm.value.is_representative">
-    <div>{{'IS_NOT_REPRESENTATIVE_TEXT' | translate}}</div>
-    <label for="mail_representative">{{'EMAIL'| translate}}</label>
-    <input id="mail_representative" class="form-control icon" type="email" formControlName="mail_representative" placeholder="{{'EMAIL' | translate }}">
-    <span class="input-img"></span>
-    
-  </ng-template>
-
-
-    <div class="mt-2">{{'FINISH_TEXT' | translate}}</div>
-    <button [disabled]='!userForm.valid' class="btn btn-secondary mt-4" type='submit'>{{'FINISH'| translate}}
- 						<span class="background-btn"><p></p></span>
-      <span class="arrow-btn"><img src="/assets/img/arrow.svg" alt=""></span> --
-    </button>
-    <p class="error" *ngIf="errorSend">{{"ERROR" | translate }}</p>
-  </div> -->
+  	<form [formGroup]="addMusicForm" (submit)="onAddMusic()">
+  		<div class="row h-100">
+  			<div class="col-lg-5 my-auto">
+  				<div class="form-group">
+					<label for="title">Titre :</label>
+					<input type="text" formControlName="title" class="form-control" id="title" required>
+  				</div>
+  			</div>
+  			<div class="col-lg-5 my-auto">
+  				<div class="form-group">
+					<label for="description">Description :</label>
+					<input type="text" formControlName="description" class="form-control" id="description" required>
+  				</div>
+  			</div>
+  			<div class="col-lg-5 my-auto">
+  				<div class="form-group">
+					<label for="file">Fichier :</label>
+					<input type="file" formControlName="file" class="form-control" id="file" required>
+  				</div>
+  			</div>
+  			<div class="col-lg-5 my-auto">
+  				<div class="form-group">
+					<label for="is_explicit">Explicite :</label>
+					<input type="radio" formControlName="is_explicit" class="form-control" id="is_explicit" [value]="1"> Oui
+					<input type="radio" formControlName="is_explicit" class="form-control" id="is_explicit" [value]="0"> Non
+  				</div>
+  			</div>
+  			<div class="col-lg-5 my-auto">
+  				<div class="form-group">
+					<label for="downloadable">Téléchargeable :</label>
+					<input type="radio" formControlName="downloadable" class="form-control" id="downloadable" [value]="1"> Oui
+					<input type="radio" formControlName="downloadable" class="form-control" id="downloadable" [value]="0"> Non
+  				</div>
+  			</div>
+  			<div class="col-lg-5 my-auto">
+				<div class="form-group input-group">
+					<label for="created_at">Date de création :</label>
+     		   		<input id="created_at" formControlName="created_at" class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
+            	   	[options]="myOptions" #dp="ngx-mydatepicker"/>
+        			<span class="input-group-btn">
+            			<button type="button" class="btn btn-default" (click)="dp.toggleCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
+        			</span>
+    			</div>
+    		</div>
+  			<div class="col-lg-5 my-auto">
+  				<div class="form-group">
+					<label for="is_active">Active sur le site :</label>
+					<input type="radio" formControlName="is_active" class="form-control" id="is_active" [value]="1"> Oui
+					<input type="radio" formControlName="is_active" class="form-control" id="is_active" [value]="0"> Non
+  				</div>
+  			</div>
+  		</div>
+  		<p *ngIf="submitted" style="color: red; width: 100%">{{ error.message }}</p>
+  		<button type="submit" class="btn btn-success">Créer</button>
+  	</form>
 
 </div>
