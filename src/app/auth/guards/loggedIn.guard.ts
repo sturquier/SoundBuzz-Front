@@ -16,8 +16,12 @@ export class LoggedInGuard implements CanActivate
 	 * 	If user not connected => redirect to /login
 	 */
 	canActivate() {
-		if (this.userService.getCurrentUser() !== null) {
-			return true;
+		if (
+			this.userService.getCurrentUser() !== null || 
+			Object.keys(localStorage.getItem('currentUser')).length !== 0
+			) {
+
+				return true;
 		}
 		
 		this.router.navigate(['/login'])

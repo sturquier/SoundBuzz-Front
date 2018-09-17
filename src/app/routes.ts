@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminHomeComponent } from './admin/home/admin-home.component';
+import { AdminUsersComponent } from './admin/users/admin-users.component';
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
@@ -45,7 +47,9 @@ const routing: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard, IsAdminGuard], children: [
-    	{ path: 'musics', component: AdminMusicsComponent },
+        { path: '', component: AdminHomeComponent },
+    	{ path: 'users', component: AdminUsersComponent },
+        { path: 'musics', component: AdminMusicsComponent }
     ]},
 ]
     

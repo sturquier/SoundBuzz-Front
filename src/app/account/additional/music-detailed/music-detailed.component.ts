@@ -22,9 +22,10 @@ export class MusicDetailedComponent implements OnInit {
 		private musicDetailedService: MusicDetailedService
 	) { }
 
-	convertMinutes(){
-		return Math.floor(this.music.duration /60);
-	}
+	// convertMinutes(){
+	// 	return Math.floor(this.music.duration /60);
+	// }
+	
 	ngOnInit() {
     this.route.params.subscribe(params => {
       console.log(params)

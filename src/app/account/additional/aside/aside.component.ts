@@ -29,6 +29,7 @@ export class AsideComponent implements OnInit {
 			.subject
 			.asObservable()
 			.subscribe(() => {
+				localStorage.removeItem('currentUser')
 				this.userService.setCurrentUser(null)
 				this.router.navigate(['/'])
 			})
