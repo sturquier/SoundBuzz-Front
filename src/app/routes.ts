@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
 import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
+import { ViewDetailsComponent } from './account/additional/music-detailed/view-details/view-details.component'
+import { AddCommentComponent } from './account/additional/music-detailed/add-comment/add-comment.component';
 import { MusicsComponent } from './account/musics/musics.component';
 import { AllMusicsComponent } from './account/musics/all-musics/all-musics.component';
 import { AddMusicComponent } from './account/musics/add-music/add-music.component';
@@ -34,7 +36,10 @@ const routing: Routes = [
     	{ path: 'musics', component: MusicsComponent, children: [
             { path: '', component: AllMusicsComponent },
             { path: 'add', component: AddMusicComponent },
-            { path: ':id', component: MusicDetailedComponent }
+            { path: ':id', component: MusicDetailedComponent, children: [
+                { path: '', component: ViewDetailsComponent },
+                { path: 'add-comment', component: AddCommentComponent }
+            ] }
         ] },
         { path: 'profile', component: ProfileComponent, children: [
             { path: '', component: ViewProfileComponent },
