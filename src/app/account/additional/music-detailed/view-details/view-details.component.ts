@@ -29,6 +29,6 @@ export class ViewDetailsComponent implements OnInit {
 			.subscribe((music) => {
 				this.music = music
 			})
-  }
+  	}
 
 }

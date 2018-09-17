@@ -1,1 +1,18 @@
-<h4>Add comment to music</h4>
+<h4>Ajouter un commentaire à la musique {{ music.title }}</h4>
+
+<div class="container">
+
+	<form [formGroup]="addCommentForm" (submit)="onAddComment">
+		<div class="row h-100">
+			<div class="col-lg-5 my-auto">
+				<div class="form-group">
+					<label for="content">Contenu :</label>
+					<input type="text" formControlName="content" class="form-control" id="content" required="">
+				</div>
+			</div>
+			<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
+			<button type="submit" class="btn btn-success">Ajouter commentaire</button>
+		</div>
+	</form>
+
+</div>

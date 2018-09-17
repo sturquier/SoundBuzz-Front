@@ -14,4 +14,4 @@
 	<li>{{ artist.name }}</li>
 </ul>
 
-<a [routerLink]="['add-comment']" class="btn">Ajouter un commentaire</a>
+<a [routerLink]="['/account/musics', music.id, 'add-comment']" class="btn">Ajouter un commentaire</a>
