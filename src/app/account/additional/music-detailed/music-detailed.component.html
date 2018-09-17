@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<div *ngIf='music'>
+	<h4>Musique {{ music.title }}</h4>
+	<p>Description : {{ music.description }}</p>
+	<p>Duree : {{ music.duration }}</p>
+	<p>Contenu explicite : {{ music.is_explicit }}</p>
+	<p>Téléchargeable : {{ music.downloadable }}</p>
+
+	<p>Genre(s) :</p>
+	<ul *ngFor="let genre of music.genres">
+		<li>{{ genre.name }}</li>
+	</ul>
+
+	<p>Artiste(s)</p>
+	<ul *ngFor="let artist of music.artists">
+		<li>{{ artist.name }}</li>
+	</ul>
+
+	<a [routerLink]="['/account/musics', music.id, 'add-comment']" class="btn">Ajouter un commentaire</a>
+	<add-comment [musicId]='music.id'></add-comment>
+</div>

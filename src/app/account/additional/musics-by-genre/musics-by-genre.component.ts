@@ -9,7 +9,7 @@ import { GenreModel } from '../../../../models/genre'
   styleUrls: ['./musics-by-genre.component.css']
 })
 export class MusicsByGenreComponent implements OnInit {
-	genre: GenreModel[]
+	genre: GenreModel[];
 	slug: string
 
 	constructor(

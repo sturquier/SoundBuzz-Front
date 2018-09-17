@@ -44,7 +44,6 @@ import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
 import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
-import { ViewDetailsComponent } from './account/additional/music-detailed/view-details/view-details.component'
 import { AddCommentComponent } from './account/additional/music-detailed/add-comment/add-comment.component';
 import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
 import { AddMusicComponent } from './account/musics/add-music/add-music.component';
@@ -74,7 +73,6 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     LoginComponent,
     MusicsComponent,
     MusicDetailedComponent,
-    ViewDetailsComponent,
     AddCommentComponent,
     MusicsByGenreComponent,
     AddMusicComponent,
