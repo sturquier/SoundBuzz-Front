@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MusicDetailedService } from '../../../../../services/music-detailed.service'
@@ -10,9 +10,8 @@ import { MusicModel } from '../../../../../models/music'
 	styleUrls: ['./add-comment.component.css']
 })
 export class AddCommentComponent implements OnInit {
-
+	@Input() musicId;
 	music: MusicModel[]
-	musicId: number
 	addCommentForm: FormGroup
 	error = ""
 	submitted = false
@@ -25,11 +24,6 @@ export class AddCommentComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		console.log(this.route.snapshot)
-		this.route.params.subscribe(params => {
-			this.musicId = params.id
-		})
-
 		this.musicDetailedService.loadSingleMusic(this.musicId)
 		this.musicDetailedService
 			.subject
