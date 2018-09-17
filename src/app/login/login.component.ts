@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
 			.asObservable()
 			.subscribe(
 				(result) => {
+					localStorage.setItem('currentUser', JSON.stringify(result))
 					this.userService.setCurrentUser(result)
 					this.router.navigate(['/account'])
 				},

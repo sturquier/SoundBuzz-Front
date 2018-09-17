@@ -62,6 +62,7 @@ export class RegisterComponent implements OnInit {
   						this.registerForm.controls.email.value,
   						this.registerForm.controls.password.value
   					).then(result => {
+              localStorage.setItem('currentUser', JSON.stringify(result))
   					  this.userService.setCurrentUser(result)
   						this.router.navigate(['/account'])
   					})
