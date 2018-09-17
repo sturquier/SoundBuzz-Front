@@ -3,35 +3,39 @@
 		<span class="col-md-4">{{music.title}}</span>
 	</li>
 </ul> -->
-<table class="table-music">
-	<tr>
-		<th class="col-md-2">Titre</th>
-		<th class="col-md-1">Actif</th>
-		<th class="col-md-1">Explicite</th>
-		<th class="col-md-1">Téléchargeable</th>		
-		<th class="col-md-4">Date de Transfert</th>	
-		<th class="col-md-1">Editer</th>
-		<th class="col-md-1">Supprimer</th>
-	</tr>
-	<tr *ngFor='let music of musics | paginate: { itemsPerPage: 10, currentPage: p }'>
-		<td>{{music.title}}</td>
+<table class=" table table-bordered table-striped table-music">
+	<thead class="thead-dark">
+		<tr>
+			<th class="col-md-2">Titre</th>
+			<th class="col-md-1">Actif</th>
+			<th class="col-md-1">Explicite</th>
+			<th class="col-md-1">Téléchargeable</th>		
+			<th class="col-md-4">Date de Transfert</th>	
+			<th class="col-md-1">Editer</th>
+			<th class="col-md-1">Supprimer</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor='let music of musics | paginate: { itemsPerPage: 10, currentPage: p }'>
+			<td>{{music.title}}</td>
 
-		<span *ngIf="music.is_active==true;then is_activeTrue else is_activeFalse"></span>
-			<ng-template #is_activeTrue><td>true</td></ng-template>
-			<ng-template #is_activeFalse><td>false</td></ng-template>
-		
-		<span *ngIf="music.downloadable==true;then downloadableTrue else downloadableFalse"></span>
-			<ng-template #downloadableTrue><td>true</td></ng-template>
-			<ng-template #downloadableFalse><td>false</td></ng-template>
-		
-		<span *ngIf="music.is_explicit==true;then is_explicitTrue else is_explicitFalse"></span>
-			<ng-template #is_explicitTrue><td>true</td></ng-template>
-			<ng-template #is_explicitFalse><td>false</td></ng-template>
-		
-		<td>{{music.transfer_at}}</td>
-		<td class="col-md-1"><button class="btn">Editer</button></td>
-		<td class="col-md-1"><button class="btn">Supprimer</button></td>
-	</tr>
+			<span *ngIf="music.is_active==true;then is_activeTrue else is_activeFalse"></span>
+				<ng-template #is_activeTrue><td>Oui</td></ng-template>
+				<ng-template #is_activeFalse><td>Non</td></ng-template>
+			
+			<span *ngIf="music.downloadable==true;then downloadableTrue else downloadableFalse"></span>
+				<ng-template #downloadableTrue><td>Oui</td></ng-template>
+				<ng-template #downloadableFalse><td>Non</td></ng-template>
+			
+			<span *ngIf="music.is_explicit==true;then is_explicitTrue else is_explicitFalse"></span>
+				<ng-template #is_explicitTrue><td>Oui</td></ng-template>
+				<ng-template #is_explicitFalse><td>Non</td></ng-template>
+			
+			<td>{{music.transfer_at}}</td>
+			<td class="col-md-1"><button class="btn">Editer</button></td>
+			<td class="col-md-1"><button class="btn">Supprimer</button></td>
+		</tr>
+	</tbody>
 </table>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
