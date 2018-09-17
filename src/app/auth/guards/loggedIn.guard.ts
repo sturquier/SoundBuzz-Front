@@ -19,8 +19,10 @@ export class LoggedInGuard implements CanActivate
 		if (
 			this.userService.getCurrentUser() !== null || 
 			localStorage.getItem('currentUser') !== null ||
+			(typeof localStorage.getItem('currentUser') === 'object' && localStorage.getItem('currentUser') !== null && 
 			Object.keys(localStorage.getItem('currentUser')).length !== 0
-			) {
+			)
+		) {
 
 				return true;
 		}
