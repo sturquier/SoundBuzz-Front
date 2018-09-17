@@ -6,8 +6,8 @@ ADD . /code/
 WORKDIR /code
 
 RUN npm install -g @angular/cli \ 
- && npm install \
- && yarn install
+ && npm rebuild node-sass \
+ && npm install
 
 EXPOSE 4200
 
