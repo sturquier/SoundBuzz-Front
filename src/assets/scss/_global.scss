@@ -4,14 +4,33 @@
 	font-weight: 300;
 }
 
+.aside-group, main {
+	background-color: $lightgrey;
+    border-radius: 5px;
+}
+
+.player-group .player {
+	background-color: $grey;
+    border-radius: 5px;
+}
+
+#nav-link-orange {
+	color: $magenta;
+	cursor: pointer;
+}
+
 .logo {
 	height: 38px;
+}
+
+.nav-link.user {
+	font-weight: bold;
 }
 
 #mainNav {
 	#links {
 		a {
-			color: orange;
+			color: $magenta;
 		}
 	} 
 }
@@ -20,4 +39,13 @@
 	.square {
 		border-radius: .25rem;
 	}
+}
+
+a {
+	color: $magenta;
+}
+
+.btn-outline:hover {
+	border-color: $magenta;
+	background-color: $magenta;
 }

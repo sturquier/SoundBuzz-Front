@@ -1,7 +1,7 @@
 <aside class="aside">
 	<ul class="nav flex-column col-12">
 	  <li class="nav-item">
-	  	<a class="nav-link active" routerLink='/account/profile'>{{ currentUser.user.username }}</a>
+	  	<a class="nav-link user active" routerLink='/account/profile'>{{ currentUser.user.username }}</a>
 	  </li>
 	  <li class="nav-item">
 	    <a class="nav-link active" routerLink='/account'>Parcourir..</a>
@@ -19,7 +19,7 @@
 	  	<a class="nav-link" routerLink='/admin'>Zone administrateur</a>
 	  </li>
 	  <li class="nav-item">
-	  	<a class="nav-link" (click)="onLogout()">Deconnexion</a>
+	  	<a class="nav-link" id='nav-link-orange' (click)="onLogout()">Deconnexion</a>
 	  </li>
 	 
 	</ul>
