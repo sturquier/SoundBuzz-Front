@@ -21,6 +21,7 @@ export class UserService
 	{
 		if (
 			this.user === null && 
+			localStorage.getItem('currentUser') !== null &&
 			Object.keys(localStorage.getItem('currentUser')).length !== 0
 		) {
 			this.setCurrentUser(JSON.parse(localStorage.getItem('currentUser')))
