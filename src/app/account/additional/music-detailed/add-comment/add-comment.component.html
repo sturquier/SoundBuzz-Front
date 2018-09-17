@@ -1,4 +1,4 @@
-<h4>Ajouter un commentaire à la musique {{ music.title }}</h4>
+<h5>Ajouter un commentaire à la musique {{ music.title }}</h5>
 
 <div class="container">
 
@@ -6,12 +6,11 @@
 		<div class="row h-100">
 			<div class="col-lg-5 my-auto">
 				<div class="form-group">
-					<label for="content">Contenu :</label>
-					<input type="text" formControlName="content" class="form-control" id="content" required="">
+					<input type="text" formControlName="content" placeholder="Contenu" class="form-control" id="content" required="">
 				</div>
 			</div>
 			<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
-			<button type="submit" class="btn btn-success">Ajouter commentaire</button>
+			<button type="submit" class="btn comment">Ajouter commentaire</button>
 		</div>
 	</form>
 
