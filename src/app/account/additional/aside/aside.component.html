@@ -16,7 +16,7 @@
 	    <a class="nav-link" routerLink='/account'>En direct</a>
 	  </li> 
 	  <li *ngIf="currentUser.user.role == 'ROLE_ADMIN'"  class="nav-item">
-	  	<a class="nav-link" routerLink='/admin/musics'>Gestion Musiques</a>
+	  	<a class="nav-link" routerLink='/admin'>Zone administrateur</a>
 	  </li>
 	  <li class="nav-item">
 	  	<a class="nav-link" (click)="onLogout()">Deconnexion</a>

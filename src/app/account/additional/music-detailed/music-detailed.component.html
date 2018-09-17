@@ -16,7 +16,7 @@
 			<ul *ngFor="let genre of music.genres">
 				<li>{{ genre.name }}</li>
 			</ul>
-			<p><b>Durée : </b>{{ convertMinutes() }} Minutes {{ music.duration % 60 }} secondes</p>
+			<p><b>Durée : </b><!--{{ convertMinutes() }}--> Minutes {{ music.duration % 60 }} secondes</p>
 			<p><b>Contenu explicite : </b>{{ music.is_explicit }}</p>
 			<p><b>Ajoutée le : </b>{{ music.transfer_at }}</p>
 

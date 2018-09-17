@@ -41,6 +41,8 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './account/home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminHomeComponent } from './admin/home/admin-home.component';
+import { AdminUsersComponent } from './admin/users/admin-users.component';
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
@@ -70,6 +72,8 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     HomeComponent,
     AccountComponent,
     AdminComponent,
+    AdminHomeComponent,
+    AdminUsersComponent,
     AdminMusicsComponent,
     LoginComponent,
     MusicsComponent,
