@@ -14,7 +14,11 @@
 	<ul *ngFor="let artist of music.artists">
 		<li>{{ artist.name }}</li>
 	</ul>
-
-	<a [routerLink]="['/account/musics', music.id, 'add-comment']" class="btn">Ajouter un commentaire</a>
+	
 	<add-comment [musicId]='music.id'></add-comment>
+	<ng-template *ngIf='music.comments'>
+		<ul *ngFor="let comment of music.comments">
+			<li>{{ comment }}</li>
+		</ul>
+	</ng-template>
 </div>
