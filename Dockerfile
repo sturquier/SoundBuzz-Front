@@ -1,12 +1,13 @@
 FROM node:8.12.0-alpine
 
-RUN mkdir /code \
- && npm install -g @angular/cli  
-
+RUN mkdir /code
 ADD . /code/
 
-RUN npm install \
- && yarn install
+WORKDIR /code
+
+RUN npm install -g @angular/cli \ 
+ && npm rebuild node-sass \
+ && npm install
 
 EXPOSE 4200
 

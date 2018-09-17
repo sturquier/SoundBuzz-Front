@@ -28,6 +28,8 @@ import { MusicsByGenreService } from '../services/musics-by-genre.service';
 import { UserService } from '../services/user.service';
 import { MyPlaylistsService } from '../services/my-playlists.service';
 import { MyProfileService } from '../services/my-profile.service';
+import { AddCommentService } from '../services/add-comment.service';
+import { AddMusicService } from '../services/add-music.service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -43,7 +45,6 @@ import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
 import { MusicDetailedComponent } from './account/additional/music-detailed/music-detailed.component';
-import { ViewDetailsComponent } from './account/additional/music-detailed/view-details/view-details.component'
 import { AddCommentComponent } from './account/additional/music-detailed/add-comment/add-comment.component';
 import { MusicsByGenreComponent } from './account/additional/musics-by-genre/musics-by-genre.component';
 import { AddMusicComponent } from './account/musics/add-music/add-music.component';
@@ -73,7 +74,6 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     LoginComponent,
     MusicsComponent,
     MusicDetailedComponent,
-    ViewDetailsComponent,
     AddCommentComponent,
     MusicsByGenreComponent,
     AddMusicComponent,
@@ -110,6 +110,8 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     UserService,
     MyPlaylistsService,
     MyProfileService,
+    AddCommentService,
+    AddMusicService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,9 @@
-<h4>Toutes les musiques du genre {{ genre.name }}</h4>
-<h5>Soit {{ genre.musics.length }} pistes</h5>
-<ul *ngFor='let music of genre.musics'>
-	<li>
-		<a [routerLink]="['/account/musics', music.id]">{{ music.title }}</a>
-	</li>
-</ul>
+<div *ngIf='genre'>
+	<h4>Toutes les musiques du genre {{ genre.name }}</h4>
+	<h5>Soit {{ genre.musics.length }} pistes</h5>
+	<ul *ngFor='let music of genre.musics'>
+		<li>
+			<a [routerLink]="['/account/musics', music.id]">{{ music.title }}</a>
+		</li>
+	</ul>
+</div>
