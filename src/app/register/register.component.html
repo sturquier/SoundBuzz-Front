@@ -26,6 +26,12 @@
 			</div>
 			<div class="col-lg-5 my-auto">
 				<div class="form-group">
+					<label for="email">Mail :</label>
+					<input type="text" formControlName="email" class="form-control" id="email" required> 
+				</div>
+			</div>
+			<div class="col-lg-5 my-auto">
+				<div class="form-group">
 					<label for="password">Mot de passe :</label>
 					<input type="password" formControlName="password" class="form-control" id="password" required> 
 				</div>
@@ -37,14 +43,11 @@
 				</div>
 			</div>
 			<div class="col-lg-5 my-auto">
-				<div class="form-group">
-					<label for="email">Mail :</label>
-					<input type="text" formControlName="email" class="form-control" id="email" required> 
-				</div>
+				<label for="birthday">Date de naissance :</label>
 			</div>
 			<div class="col-lg-5 my-auto">
-				<div class="form-group input-group">
-     		   		<input formControlName="birthday" class="form-control" style="float:none" placeholder="Select a date" ngx-mydatepicker name="mydate"
+				<div class="form-group input-group">	
+     		   		<input formControlName="birthday" class="form-control" style="float:none" placeholder="Selectionnez votre date de naissance" ngx-mydatepicker name="mydate"
             	   	[options]="myOptions" #dp="ngx-mydatepicker"/>
         			<span class="input-group-btn">
             			<button type="button" class="btn btn-default" (click)="dp.toggleCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -68,8 +71,10 @@
 					</div>
 				</div> -->
  				<!-- <h2 *ngIf="!artiste">Pas artiste</h2> -->
- 			<p *ngIf="submitted" style="color:red; width:100%;">{{ error.message }}</p>
-			<button type="submit" class="btn btn-success">S'inscrire</button>
+ 			<div class="col-lg-3 my-auto offset-md-8">
+ 				<p *ngIf="submitted" style="color:red; width:100%;">{{ error.message }}</p>
+				<button type="submit" style="margin-left:25px;" class="btn btn-success">S'inscrire</button>
+			</div>
 		</div>
 	</form>
 </div>

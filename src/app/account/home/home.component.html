@@ -1,7 +1,14 @@
 <h4>Page Parcourir</h4>
-<ul *ngFor='let genre of genres'>
+<!-- <ul *ngFor='let genre of genres'>
 	<li>
 		<a [routerLink]="['/account/genres', genre.slug]">{{ genre.name }}</a>
 	</li>
-</ul>
+</ul> -->
+<div class="row">
+	<span class="col-3" *ngFor='let genre of genres'>
+		<a [routerLink]="['/account/genres', genre.slug]">	
+			{{ genre.name }}
+		</a> 
+	</span>
+</div>
 <router-outlet></router-outlet>

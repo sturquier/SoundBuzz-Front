@@ -10,14 +10,21 @@ import { MusicModel } from '../../../../models/music';
 })
 
 export class MusicDetailedComponent implements OnInit {
-  music: MusicModel[]
+  	music: MusicModel[]
 	musicId: number
+	headphones: string = "headphones";
+	download: string = "download";
+	heart: string = "heart";
+	plusSquare: string = "plus-square";
 
 	constructor(
     private route: ActivatedRoute,
 		private musicDetailedService: MusicDetailedService
 	) { }
 
+	convertMinutes(){
+		return Math.floor(this.music.duration /60);
+	}
 	ngOnInit() {
     this.route.params.subscribe(params => {
       console.log(params)

@@ -1,9 +1,24 @@
 <h4>Mon profil</h4>
 
-<p>Prenom Nom : {{ currentUser.user.firstname }} {{ currentUser.user.lastname }}</p>
-<p>Pseudo : {{ currentUser.user.username }}</p>
-<p>Inscrit le : {{ currentUser.user.created_at }}</p>
-<p>Né(e) le : {{ currentUser.user.birthday }}</p>
-<p>Adresse email : {{ currentUser.user.email }}</p>
+<div class="row">
+	<div class="col-md-2">
+		<img class="avatar" src="assets/images/avatar-placeholder.png">
+	</div>
+	<div class="col-md-10">
+		<div class="row">
+			<div class="col-md-6">
+				<p>Prenom Nom : {{ currentUser.user.firstname }} {{ currentUser.user.lastname }}</p>
+				<p>Adresse email : {{ currentUser.user.email }}</p>
+			</div>
+			<div class="col-md-6">
+				<p>Pseudo : {{ currentUser.user.username }}</p>
+				<p>Inscrit le : {{ currentUser.user.created_at }}</p>
+				<p>Né(e) le : {{ currentUser.user.birthday }}</p>
+			</div>
+			
 
-<a [routerLink]="['edit']" class="btn">Editer</a>
+			<a [routerLink]="['edit']" class="btn">Editer</a>
+		</div>
+	</div>
+</div>
+<div class="row">

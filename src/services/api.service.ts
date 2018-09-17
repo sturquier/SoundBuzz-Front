@@ -7,9 +7,12 @@ export class ApiService
 {
     apiUrl: string
     defaultParams = []
-    
+    headers
+
     constructor(private http: Http) {
         this.apiUrl = environment.rootApiUrl
+        this.headers = new Headers()
+        this.headers.append('Content-Type', 'multipart/form-data')
     }
     
     get(url) {
@@ -17,7 +20,7 @@ export class ApiService
     }
 
     post(url, body) {
-    	return this.http.post(this.apiUrl + url, body)
+    	return this.http.post(this.apiUrl + url, body, { headers: this.headers })
     }
 
     delete(url) {
