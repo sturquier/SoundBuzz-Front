@@ -5,7 +5,8 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminHomeComponent } from './admin/home/admin-home.component';
 import { AdminUsersComponent } from './admin/users/admin-users.component';
-import { AdminUserEditComponent } from './admin/users/edit/admin-user-edit.component';
+import { AdminViewUsersComponent } from './admin/users/view/admin-view-users.component';
+import { AdminEditUserComponent } from './admin/users/edit/admin-edit-user.component';
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
@@ -50,7 +51,9 @@ const routing: Routes = [
     { path: 'admin', component: AdminComponent, canActivate: [LoggedInGuard, IsAdminGuard], children: [
         { path: '', component: AdminHomeComponent },
     	{ path: 'users', component: AdminUsersComponent, children: [
-            { path: ':id/edit', component: AdminUserEditComponent }
+            { path: '', component: AdminViewUsersComponent },
+            { path: 'edit/:id', component: AdminEditUserComponent }
+            }
         ] },
         { path: 'musics', component: AdminMusicsComponent }
     ]},
