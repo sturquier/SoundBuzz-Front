@@ -5,10 +5,10 @@ ADD . /code/
 
 WORKDIR /code
 
-RUN npm install -g @angular/cli \ 
- && npm rebuild node-sass \
- && npm install
+RUN npm rebuild node-sass
+RUN npm install -g @angular/cli
+RUN npm install
 
 EXPOSE 4200
 
-CMD ["/code ng serve -H 0.0.0.0"]
+CMD ["ng","serve"]
