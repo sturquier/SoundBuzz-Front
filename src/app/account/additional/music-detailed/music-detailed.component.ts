@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MusicDetailedService } from '../../../../services/music-detailed.service';
 import { MusicModel } from '../../../../models/music';
+import { DownloadMusicService } from '../../../../services/download-music.service';
 
 @Component({
   selector: 'music-detailed',
@@ -18,8 +19,9 @@ export class MusicDetailedComponent implements OnInit {
 	plusSquare: string = "plus-square";
 
 	constructor(
-    private route: ActivatedRoute,
-		private musicDetailedService: MusicDetailedService
+    	private route: ActivatedRoute,
+		private musicDetailedService: MusicDetailedService,
+		private downloadMusicService: DownloadMusicService
 	) { }
 
 	// convertMinutes(){
@@ -29,8 +31,12 @@ export class MusicDetailedComponent implements OnInit {
 	ngOnInit() {
     	this.route.params.subscribe(params => {
 			this.musicId = params.id
-    	})
-    
+		})
+		
+		this.loadSingleMusic()
+	}
+
+	loadSingleMusic() {
 		this.musicDetailedService.loadSingleMusic(this.musicId)
 		this.musicDetailedService
 			.subject
@@ -38,6 +44,19 @@ export class MusicDetailedComponent implements OnInit {
 			.subscribe((music) => {
 				this.music = music
 			})
-  }
+	}
+	  
+	onDownloadMusic() {
+		this.downloadMusicService.downloadMusic(this.musicId)
+		this.downloadMusicService
+			.subject
+			.asObservable()
+			.subscribe(
+				(result) => {
+					this.loadSingleMusic()
+				},
+				(error) => { console.log(error) }
+			)
+	}
 
 }

@@ -53,7 +53,6 @@ const routing: Routes = [
     	{ path: 'users', component: AdminUsersComponent, children: [
             { path: '', component: AdminViewUsersComponent },
             { path: 'edit/:id', component: AdminEditUserComponent }
-            }
         ] },
         { path: 'musics', component: AdminMusicsComponent }
     ]},
