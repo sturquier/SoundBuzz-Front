@@ -51,4 +51,23 @@ export class AdminService
 				}
 		})
 	}
+
+	/**
+	 *	Delete a single user
+	 */
+	deleteUser(userId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.delete(`/users/${userId}`)
+				.subscribe(response => {
+					this.userSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.userSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
 }

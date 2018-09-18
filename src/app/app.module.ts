@@ -43,6 +43,7 @@ import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminHomeComponent } from './admin/home/admin-home.component';
 import { AdminUsersComponent } from './admin/users/admin-users.component';
+import { AdminUserEditComponent } from './admin/users/edit/admin-user-edit.component';
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
@@ -74,6 +75,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AdminComponent,
     AdminHomeComponent,
     AdminUsersComponent,
+    AdminUserEditComponent,
     AdminMusicsComponent,
     LoginComponent,
     MusicsComponent,
