@@ -32,7 +32,7 @@ const routing: Routes = [
     	{ path: '', component: HomeComponent },
     	{ path: 'playlists', component: PlaylistsComponent, children: [
             { path: '', component: AllPlaylistsComponent },
-            { path: 'add', component: AddPlaylistComponent }
+            { path: 'add', component: AddPlaylistComponent },
         ] },
     	{ path: 'genres/:slug', component: MusicsByGenreComponent },
     	{ path: 'musics', component: MusicsComponent, children: [

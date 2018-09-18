@@ -9,7 +9,7 @@ import { AddMusicService } from '../../../../services/add-music.service'
 	styleUrls: ['./add-music.component.css']
 })
 export class AddMusicComponent implements OnInit {
-	
+	nativeFile = {}
 	addMusicForm: FormGroup;
 	submitted = false
 	error = ""
@@ -29,6 +29,21 @@ export class AddMusicComponent implements OnInit {
 			created_at: ['', Validators.required],
 			is_active: [1, Validators.required]
 		})
+	}
+
+	coucou(event) {
+		console.log(event.target.files)
+		const reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		reader.onloadend = () => {
+		  const img = {
+			filename: event.target.files[0].name,
+			filetype: event.target.files[0].type,
+			value: reader.result.split(",")[1]
+		  };
+		  console.log(img);
+		  this.nativeFile = img;
+		};
 	}
 	
 	onAddMusic() {

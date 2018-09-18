@@ -18,7 +18,7 @@
   			<div class="col-lg-5 my-auto">
   				<div class="form-group">
 					<label for="file">Fichier :</label>
-					<input type="file" formControlName="file" class="form-control" id="file" required>
+					<input type="file" formControlName="file" class="form-control" id="file" (change)='coucou($event)' required>
   				</div>
   			</div>
   			<div class="col-lg-5 my-auto">
