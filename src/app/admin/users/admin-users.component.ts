@@ -18,6 +18,10 @@ export class AdminUsersComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
+		this.loadAllUsers()
+	}
+
+	loadAllUsers() {
 		this.adminService.loadAllUsers()
 		this.adminService
 			.userSubject
@@ -28,7 +32,15 @@ export class AdminUsersComponent implements OnInit {
 	}
 
 	onDeleteUser(userId) {
-		console.log(userId)
-	}
+		if (confirm("Etes vous sur de supprimer cet utilisateur ? Cela supprimera aussi ses musiques, playlists, likes et commentaires")) {
+			this.adminService.deleteUser(userId)
+			this.adminService
+				.userSubject
+				.asObservable()
+				.subscribe(
+				(result) => { this.loadAllUsers() },
+				(error) => console.log(error))
+			}
+		}
 
 }
