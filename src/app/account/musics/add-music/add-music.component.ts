@@ -23,7 +23,7 @@ export class AddMusicComponent implements OnInit {
 		this.addMusicForm = this.formBuilder.group({
 			title: ['', Validators.required],
 			description: ['', Validators.required],
-			file: ['', Validators.required],
+			file: [{}, Validators.required],
 			is_explicit: [0, Validators.required],
 			downloadable: [1, Validators.required],
 			created_at: ['', Validators.required],
@@ -31,7 +31,7 @@ export class AddMusicComponent implements OnInit {
 		})
 	}
 
-	coucou(event) {
+	addFile(event) {
 		console.log(event.target.files)
 		const reader = new FileReader();
 		reader.readAsDataURL(event.target.files[0]);
@@ -41,7 +41,7 @@ export class AddMusicComponent implements OnInit {
 			filetype: event.target.files[0].type,
 			value: reader.result.split(",")[1]
 		  };
-		  console.log(img);
+		  //console.log(img);
 		  this.nativeFile = img;
 		};
 	}
@@ -49,18 +49,11 @@ export class AddMusicComponent implements OnInit {
 	onAddMusic() {
 		this.submitted = true
 
-		console.log(this.addMusicForm.controls.file)
+		this.addMusicForm.controls['file'].setValue(this.nativeFile)
+		this.addMusicForm.controls['created_at'].setValue(this.addMusicForm.controls.created_at.value.formatted)
+		console.log(this.addMusicForm)
 
-		this.addMusicService.createMusic(
-			this.addMusicForm.controls.title.value,
-			this.addMusicForm.controls.description.value,
-			this.addMusicForm.controls.file.value,
-			this.addMusicForm.controls.is_explicit.value,
-			this.addMusicForm.controls.downloadable.value,
-			this.addMusicForm.controls.created_at.value.formatted,
-			this.addMusicForm.controls.is_active.value,
-		)
-
+		this.addMusicService.createMusic(this.addMusicForm.value)
 		this.addMusicService
 			.subject
 			.asObservable()

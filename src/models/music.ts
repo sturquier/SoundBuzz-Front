@@ -6,7 +6,7 @@ export interface MusicModel
 	id?: number,
 	title: string,
 	description?: string,
-	file: string,
+	file: File,
 	photo?: Object,
 	is_explicit: boolean,
 	downloadable: boolean,

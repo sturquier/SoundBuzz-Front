@@ -1,10 +1,10 @@
 <div *ngIf='music'>
-	<h5>Ajouter un commentaire à la musique {{ title }}</h5>
+	<p>Ajouter un commentaire à la musique {{ title }}</p>
 	<div class="container">
 
 		<form [formGroup]="addCommentForm" (submit)="onAddComment()">
 			<div class="row h-100">
-				<div class="col-lg-5 my-auto">
+				<div class="col-lg-5 p-0 my-auto">
 					<div class="form-group">
 						<input type="text" formControlName="content" placeholder="Contenu" class="form-control" id="content" required="">
 					</div>
