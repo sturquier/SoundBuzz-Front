@@ -14,6 +14,7 @@ import { AuthTokenModel } from '../../../../../models/authToken';
 })
 export class AddCommentComponent implements OnInit {
 	@Input() musicId;
+	@Input() title;
 	music: MusicModel[]
 	addCommentForm: FormGroup
 	error = ""
