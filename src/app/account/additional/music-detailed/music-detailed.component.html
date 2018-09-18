@@ -44,12 +44,11 @@
 			</div>
 		</div>
 		<div class="mt-3 pt-3 col-md-5 col-lg-12">
+			<h5>Commentaires</h5>
+			<ul *ngFor="let comment of music.comments">
+				<li>{{ comment.content }} par {{ comment.user.username }}</li>		
+			</ul>
 			<add-comment [musicId]='music.id'></add-comment>
-			<ng-template *ngIf='music.comments'>
-				<ul *ngFor="let comment of music.comments">
-					<li>{{ comment }}</li>
-				</ul>
-			</ng-template>
 		</div>
 	</div>
 </div>
