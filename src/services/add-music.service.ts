@@ -23,7 +23,7 @@ export class AddMusicService
 		return new Promise((resolve, reject) => {
 			this
 				.apiService
-				.post('/musics', {
+				.postWithFormData('/musics', {
 					title: title,
 					description: description,
 					file: file,
