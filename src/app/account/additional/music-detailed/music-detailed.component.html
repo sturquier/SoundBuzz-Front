@@ -44,7 +44,8 @@
 			</div>
 		</div>
 		<div class="mt-3 pt-3 col-md-5 col-lg-12">
-			<add-comment [musicId]='music.id'></add-comment>
+			<add-comment [musicId]='music.id' [title]='music.title'></add-comment>
+			
 			<ng-template *ngIf='music.comments'>
 				<ul *ngFor="let comment of music.comments">
 					<li>{{ comment }}</li>
