@@ -56,7 +56,7 @@ export class AddCommentComponent implements OnInit {
 
 		this.commentService
 			.subject
-			.asObservable
+			.asObservable()
 			.subscribe(
 				(result) => {
 					this.loadSingleMusic()

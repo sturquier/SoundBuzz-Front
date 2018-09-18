@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
 import { ApiService } from './api.service'
 import { MusicModel } from '../models/music'
+import { UserModel } from '../models/user'
 
 @Injectable()
 export class AdminService
 {
-	subject: Subject<Array<MusicModel>> = new Subject()
+	musicSubject: Subject<Array<MusicModel>> = new Subject()
+	userSubject: Subject<Array<UserModel>> = new Subject()
 
 	constructor(private apiService: ApiService) {
 
@@ -21,11 +23,49 @@ export class AdminService
 				.apiService
 				.get(`/musics`)
 				.subscribe(response => {
-					this.subject.next(response.json())
+					this.musicSubject.next(response.json())
 					resolve(response.json())
 				}),
 				error => {
-					this.subject.error(error.json())
+					this.musicSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
+
+	/**
+	 * 	Fetch all users
+	 */
+	loadAllUsers() {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.get('/users')
+				.subscribe(response => {
+					this.userSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.userSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
+
+	/**
+	 *	Delete a single user
+	 */
+	deleteUser(userId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.delete(`/users/${userId}`)
+				.subscribe(response => {
+					this.userSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.userSubject.error(error.json())
 					reject(error)
 				}
 		})

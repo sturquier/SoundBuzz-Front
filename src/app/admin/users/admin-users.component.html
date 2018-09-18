@@ -1,0 +1,32 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Prenom Nom</th>
+			<th>Nom d'utilisateur</th>
+			<th>Email</th>
+			<th>Actif sur le site</th>
+			<th>Editer</th>
+			<th>Supprimer</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor='let user of users | paginate: { itemsPerPage: 10, currentPage: p }'>
+			<td>{{ user.firstname }} {{ user.lastname }}</td>
+			<td>{{ user.username }}</td>
+			<td>{{ user.email }}</td>
+			<td>{{ user.is_active }}</td>
+			<td>x</td>
+			<td>
+				<button class="btn btn-danger" disabled *ngIf="user.role == 'ROLE_ADMIN'; else isNotAdmin">
+					<fa-icon [icon]="trash" size="xs"></fa-icon>
+				</button>
+				<ng-template #isNotAdmin>
+					<button class="btn btn-danger" (click)="onDeleteUser(user.id)">
+						<fa-icon [icon]="trash" size="xs"></fa-icon>
+					</button>
+				</ng-template>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

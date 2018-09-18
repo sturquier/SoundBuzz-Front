@@ -21,7 +21,7 @@ export class AdminMusicsComponent implements OnInit {
   	ngOnInit() {
 		this.adminService.loadAllMusics();
 		this.adminService
-			.subject
+			.musicSubject
 			.asObservable()
 			.subscribe((musics) => {
 				this.musics = musics

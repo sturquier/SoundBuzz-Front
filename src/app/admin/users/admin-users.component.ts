@@ -1,15 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../../../models/user'
+import { AdminService } from '../../../services/admin.service'
 
 @Component({
-  selector: 'admin-users',
-  templateUrl: './admin-users.component.html',
-  styleUrls: ['./admin-users.component.css']
+	selector: 'admin-users',
+	templateUrl: './admin-users.component.html',
+	styleUrls: ['./admin-users.component.css']
 })
 export class AdminUsersComponent implements OnInit {
 
-  constructor() { }
+	users: UserModel[]
+	p: number = 1
+	trash: string = "trash"
 
-  ngOnInit() {
-  }
+	constructor(
+		private adminService: AdminService
+	) { }
+
+	ngOnInit() {
+		this.adminService.loadAllUsers()
+		this.adminService
+			.userSubject
+			.asObservable()
+			.subscribe((users) => {
+				this.users = users
+		})
+	}
+
+	onDeleteUser(userId) {
+		console.log(userId)
+	}
 
 }

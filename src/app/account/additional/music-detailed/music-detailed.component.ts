@@ -27,10 +27,9 @@ export class MusicDetailedComponent implements OnInit {
 	// }
 	
 	ngOnInit() {
-    this.route.params.subscribe(params => {
-      console.log(params)
+    	this.route.params.subscribe(params => {
 			this.musicId = params.id
-    })
+    	})
     
 		this.musicDetailedService.loadSingleMusic(this.musicId)
 		this.musicDetailedService

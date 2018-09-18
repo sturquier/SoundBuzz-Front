@@ -1,17 +1,17 @@
-<h5>Ajouter un commentaire à la musique {{ title }}</h5>
+<div *ngIf='music'>
+	<h5>Ajouter un commentaire à la musique {{ title }}</h5>
+	<div class="container">
 
-<div class="container">
-
-	<form [formGroup]="addCommentForm" (submit)="onAddComment()">
-		<div class="row h-100">
-			<div class="col-lg-5 my-auto">
-				<div class="form-group">
-					<input type="text" formControlName="content" placeholder="Contenu" class="form-control" id="content" required="">
+		<form [formGroup]="addCommentForm" (submit)="onAddComment()">
+			<div class="row h-100">
+				<div class="col-lg-5 my-auto">
+					<div class="form-group">
+						<input type="text" formControlName="content" placeholder="Contenu" class="form-control" id="content" required="">
+					</div>
 				</div>
+				<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
+				<button type="submit" class="btn comment">Ajouter commentaire</button>
 			</div>
-			<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
-			<button type="submit" class="btn comment">Ajouter commentaire</button>
-		</div>
-	</form>
-
+		</form>
+	</div>
 </div>
