@@ -40,7 +40,20 @@
 				<div class="col-md-6 alignement">
 					Ajouter à une playlist
 					<br>
-					<fa-icon [icon]="plusSquare" size="2x"></fa-icon>
+					<fa-icon [icon]="plusSquare" size="2x" (click)="activateChoicePlaylist()"></fa-icon>
+				</div>
+
+				<!--Ajouter une musique à une playlist-->
+				<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
+					Choisissez une playlist : 
+				</div>
+				<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
+					<select class="form-control" id="playlistToAdd">
+					    <option *ngFor="let playlist of myPlaylists" [value]="playlist">{{playlist.name}}</option>
+					</select>
+				</div>
+				<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
+					<button class="btn" (click)="addMusicToPlaylist()">Ajouter à la playlist</button>
 				</div>
 			</div>
 		</div>

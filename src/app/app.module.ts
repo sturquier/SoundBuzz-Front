@@ -32,6 +32,7 @@ import { AddCommentService } from '../services/add-comment.service';
 import { AddMusicService } from '../services/add-music.service';
 import { DownloadMusicService } from '../services/download-music.service';
 import { AddPlaylistService } from '../services/add-playlist.service';
+import { AllPlaylistsService } from '../services/all-playlists-service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -127,7 +128,8 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AddCommentService,
     AddMusicService,
     DownloadMusicService,
-    AddPlaylistService
+    AddPlaylistService,
+    AllPlaylistsService
   ],
   bootstrap: [AppComponent]
 })

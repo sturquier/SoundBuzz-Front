@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { LoginService } from '../../../../services/login.service'
 import { UserService } from '../../../../services/user.service'
-import { MyPlaylistsService } from '../../../../services/my-playlists.service'
-import { PlaylistModel } from '../../../../models/playlist'
 
 @Component({
 	selector: 'app-aside',
@@ -14,18 +12,15 @@ import { PlaylistModel } from '../../../../models/playlist'
 export class AsideComponent implements OnInit {
 
 	currentUser: null
-	myPlaylists: PlaylistModel[]
 
 	constructor(
 		private router: Router,
 		private loginService: LoginService,
-		private userService: UserService,
-		private myPlaylistsService: MyPlaylistsService
+		private userService: UserService
 	) { }
 
 	ngOnInit() {
 		this.currentUser = this.userService.getCurrentUser()
-		this.loadPlaylists();
 	}
 
 	onLogout() {
@@ -38,13 +33,5 @@ export class AsideComponent implements OnInit {
 				this.userService.setCurrentUser(null)
 				this.router.navigate(['/'])
 			})
-	}
-
-	loadPlaylists(){
-		this.myPlaylistsService.loadUserPlaylists()
- 		this.myPlaylistsService
- 			.subject
- 			.asObservable()
- 			.subscribe(myPlaylists => this.myPlaylists = myPlaylists)	
 	}
 }
