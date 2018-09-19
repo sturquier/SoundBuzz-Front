@@ -12,6 +12,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxUploaderModule } from 'ngx-uploader';
 
 library.add(fas);
 
@@ -101,6 +102,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     NgxPaginationModule,
+    NgxUploaderModule,
     HttpModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),

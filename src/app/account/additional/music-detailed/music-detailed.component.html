@@ -22,25 +22,31 @@
 		</div>
 		<div class="col-md-4">
 			<div class="row">
-				<div class="col-sm-3 col-md-6 alignement">
+				<div class="col-sm-3 col-md-6 alignement action">
 					Ecouter
 					<br>
 					<fa-icon [icon]="headphones" size="2x"></fa-icon>
 				</div>
-				<div class="col-sm-3 col-md-6 alignement">
+				<div class="col-sm-3 col-md-6 alignement action">
 					Télécharger
 					<br>
 					<fa-icon [icon]="download" size="2x" (click)="onDownloadMusic()"></fa-icon>
 				</div>
-				<div class="col-sm-3 col-md-6 alignement">
+				<div class="col-sm-3 col-md-6 alignement action" (click)='like()'>
 					J'aime
 					<br>
 					<fa-icon [icon]="heart" size="2x"></fa-icon>
 				</div>
-				<div class="col-sm-3 col-md-6 alignement">
+				<div class="col-sm-3 col-md-6 alignement action" (click)='addToPlaylist()'>
 					Ajouter à une playlist
 					<br>
 					<fa-icon [icon]="plusSquare" size="2x"></fa-icon>
+					<form >
+						<select name="playlist" id="playlist">
+							<option value="coucou"></option>
+						</select>
+						<button type='submit'></button>
+					</form>
 				</div>
 			</div>
 		</div>
