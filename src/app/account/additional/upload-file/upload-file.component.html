@@ -1,0 +1,21 @@
+<div class="form-theme drop-container block_cloud" ngFileDrop 
+	  (uploadOutput)="onUploadOutput($event)"
+	  [uploadInput]="uploadService.uploadInput"
+	  [ngClass]="{'drag-over': dragOver,'uploading':loading}">
+	<p class="w-100 text-center">
+		Déposer votre fichier ou
+		<label class="upload-button">
+		<input type="file" ngFileSelect name="file" accept='audio/*' (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadService.uploadInput" class="form-theme" required> 
+		Sélectionner votre fichier
+		</label>
+	</p>
+	<p class="error-file" *ngIf="error">Une erreur s'est produite</p>
+	<!-- Missing preview / name file uploaded  -->
+	<p class="filename" *ngFor='let f of files'> {{f.name}} <a class="delete" (click)="removeFile(f.id)">supprimer</a></p>
+</div>
+<div *ngIf="loading" class="loading-group text-center">
+	<div class="loading upload">
+		<span *ngIf="progress.data">{{progress.data.percentage}}%</span>
+		<p class="loader"></p>
+	</div>
+</div>

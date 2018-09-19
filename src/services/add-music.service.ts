@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/Subject'
 import { ApiService } from './api.service'
 import { MusicModel } from '../models/music'
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class AddMusicService

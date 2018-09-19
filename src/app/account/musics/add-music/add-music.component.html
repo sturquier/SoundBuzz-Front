@@ -14,29 +14,9 @@
   				</div>
   			</div>
   			<div class="col-lg-5 my-auto">
-				<label for="file">Fichier</label>
 	<!-- 			<input id="file" class="form-control" type="file" formControlName="file"> -->			
-				<div class="form-theme drop-container block_cloud" ngFileDrop 
-							(uploadOutput)="onUploadOutput($event)"
-							[uploadInput]="uploadInput"
-							[ngClass]="{'drag-over': dragOver,'uploading':loading}">
-					<p class="w-100 text-center">
-						Déposer votre fichier ou
-						<label class="upload-button">
-						<input type="file" ngFileSelect name="file" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" class="form-theme" required> 
-						Sélectionner votre fichier
-						</label>
-					</p>
-					<p class="error-file" *ngIf="error">Une erreur s'est produite</p>
-					<!-- Missing preview / name file uploaded  -->
-					<p class="filename" *ngFor='let f of files'> {{f.name}} <a class="delete" (click)="removeFile(f.id)">supprimer</a></p>
-				</div>
-				<div *ngIf="loading" class="loading-group text-center">
-					<div class="loading upload">
-						<span *ngIf="progress.data">{{progress.data.percentage}}%</span>
-						<p class="loader"></p>
-					</div>
-				</div>
+					<app-upload-file [form]='addMusicForm' [route]='"account/musics"' [url]='"/musics"' [name]='"file"'
+					></app-upload-file>
   			</div>
   			<div class="col-lg-5 my-auto">
   				<div class="form-group">
@@ -70,7 +50,7 @@
   				</div>
   			</div>
   		</div>
-  		<p *ngIf="submitted" style="color: red; width: 100%">{{ error.message }}</p>
+  		<p *ngIf="submitted" style="color: red; width: 100%"></p>
   		<button type="button" class="btn btn-success" type='submit' [disabled]="addMusicForm.invalid || addMusicForm.prestine">Créer</button>
   	</form>
 

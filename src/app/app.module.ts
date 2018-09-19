@@ -32,6 +32,9 @@ import { AddCommentService } from '../services/add-comment.service';
 import { AddMusicService } from '../services/add-music.service';
 import { DownloadMusicService } from '../services/download-music.service';
 import { AddPlaylistService } from '../services/add-playlist.service';
+// Guards
+import { LoggedInGuard } from './auth/guards/loggedIn.guard'
+import { IsAdminGuard } from './auth/guards/isAdmin.guard';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -63,9 +66,9 @@ import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playl
 import { ProfileComponent } from './account/profile/profile.component'
 import { ViewProfileComponent } from './account/profile/view-profile/view-profile.component';
 import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
-// Guards
-import { LoggedInGuard } from './auth/guards/loggedIn.guard'
-import { IsAdminGuard } from './auth/guards/isAdmin.guard'
+import { UploadFileComponent } from './account/additional/upload-file/upload-file.component'
+import { NgxUploaderModule } from 'ngx-uploader';
+import { UploadService } from '../services/upload.service';
 
 @NgModule({
   declarations: [
@@ -99,6 +102,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     ProfileComponent,
     ViewProfileComponent,
     EditProfileComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
@@ -107,6 +111,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     NgxPaginationModule,
+    NgxUploaderModule,
     HttpModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
@@ -129,7 +134,8 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AddCommentService,
     AddMusicService,
     DownloadMusicService,
-    AddPlaylistService
+    AddPlaylistService,
+    UploadService
   ],
   bootstrap: [AppComponent]
 })
