@@ -52,6 +52,14 @@ export class MusicDetailedComponent implements OnInit {
 				this.music = music
 			})
 	}
+
+	addToPlaylist() {
+		console.log('coucou')
+	}
+
+	like() {
+		console.log('coucou')
+	}
 	  
 	onDownloadMusic() {
 		this.downloadMusicService.downloadMusic(this.musicId)
@@ -78,7 +86,8 @@ export class MusicDetailedComponent implements OnInit {
 		this.choiceplaylist = !this.choiceplaylist;
 	}
 
-	addMusicToPlaylist(){
+	addMusicToPlaylist(value){
+		console.log(value);
 	}
 
 }

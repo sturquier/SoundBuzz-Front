@@ -27,6 +27,10 @@
 	font-weight: bold;
 }
 
+.action {
+	cursor: pointer;
+}
+
 #mainNav {
 	#links {
 		a {
@@ -48,4 +52,69 @@ a {
 .btn-outline:hover {
 	border-color: $magenta;
 	background-color: $magenta;
+}
+
+//style for drag and drop
+.form-theme {
+	&.drop-container {
+		height: 156px;
+		width: 100%;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border: 2px dotted #AAAEB3;
+		border-radius: 5px;
+		background-color: rgba(18,53,136,0.05);
+		margin-top: 1rem;
+		&.drag-over {
+			border: 2px solid $blue;
+			background-color: rgba($blue,0.7);
+		}
+		&.uploading {
+			display: none;
+		}
+		.file-upload {
+			width: 24.87px;
+			height: auto;
+			margin-bottom: 16px;
+		}
+		p {
+			color: $magenta;
+			font-weight: bold;
+			margin-bottom: 0;
+			font-size: 13px;
+		}
+		.filename {
+			padding-top: 15px;
+			width: 100%;
+			text-align: center;
+			.delete {
+				color: #721c24;
+				cursor: pointer;
+			}
+		}
+		.upload-button {
+			display: inline-block;
+			border: none;
+			outline: none;
+			text-decoration: underline;
+			cursor: pointer;
+			color: #123588;
+			margin-bottom: 0;
+			input {
+				display: none;
+			}
+		}
+		.error-file {
+			font-size: 12px;
+			color: #e74c3c;
+		}
+		small {
+			display: inline-block;
+			color: #AAAEB3;
+			font-size: 10px;
+		}
+	}
 }

@@ -9,6 +9,7 @@ import { AdminViewUsersComponent } from './admin/users/view/admin-view-users.com
 import { AdminEditUserComponent } from './admin/users/edit/admin-edit-user.component';
 import { AdminGenresComponent } from './admin/genres/admin-genres.component';
 import { AdminViewGenresComponent } from './admin/genres/view/admin-view-genres.component'
+import { AdminAddGenreComponent } from './admin/genres/add/admin-add-genre.component'
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 
 import { HomeComponent } from './account/home/home.component';
@@ -62,6 +63,7 @@ const routing: Routes = [
         ] },
         { path: 'genres', component: AdminGenresComponent, children: [
             { path: '', component: AdminViewGenresComponent },
+            { path: 'add', component: AdminAddGenreComponent },
         ]},
         { path: 'musics', component: AdminMusicsComponent }
     ]},
