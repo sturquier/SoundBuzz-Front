@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MusicDetailedService } from '../../../../services/music-detailed.service';
 import { MusicModel } from '../../../../models/music';
 import { DownloadMusicService } from '../../../../services/download-music.service';
+import { MyPlaylistsService } from '../../../../services/my-playlists.service'
+import { PlaylistModel } from '../../../../models/playlist';
 
 @Component({
   selector: 'music-detailed',
@@ -12,6 +14,9 @@ import { DownloadMusicService } from '../../../../services/download-music.servic
 
 export class MusicDetailedComponent implements OnInit {
   	music: MusicModel[]
+  	myPlaylists: PlaylistModel[];
+  	playlist: PlaylistModel;
+  	choiceplaylist: boolean;
 	musicId: number
 	headphones: string = "headphones";
 	download: string = "download";
@@ -21,7 +26,8 @@ export class MusicDetailedComponent implements OnInit {
 	constructor(
     	private route: ActivatedRoute,
 		private musicDetailedService: MusicDetailedService,
-		private downloadMusicService: DownloadMusicService
+		private downloadMusicService: DownloadMusicService,
+		private myPlaylistsService: MyPlaylistsService
 	) { }
 
 	// convertMinutes(){
@@ -32,8 +38,9 @@ export class MusicDetailedComponent implements OnInit {
     	this.route.params.subscribe(params => {
 			this.musicId = params.id
 		})
-		
+		this.choiceplaylist=false;
 		this.loadSingleMusic()
+		this.addInPlaylist()
 	}
 
 	loadSingleMusic() {
@@ -44,6 +51,14 @@ export class MusicDetailedComponent implements OnInit {
 			.subscribe((music) => {
 				this.music = music
 			})
+	}
+
+	addToPlaylist() {
+		console.log('coucou')
+	}
+
+	like() {
+		console.log('coucou')
 	}
 	  
 	onDownloadMusic() {
@@ -57,6 +72,22 @@ export class MusicDetailedComponent implements OnInit {
 				},
 				(error) => { console.log(error) }
 			)
+	}
+
+	addInPlaylist(){
+		this.myPlaylistsService.loadUserPlaylists()
+ 		this.myPlaylistsService
+ 			.subject
+ 			.asObservable()
+ 			.subscribe(myPlaylists => this.myPlaylists = myPlaylists)
+	}
+
+	activateChoicePlaylist(){
+		this.choiceplaylist = !this.choiceplaylist;
+	}
+
+	addMusicToPlaylist(value){
+		console.log(value);
 	}
 
 }

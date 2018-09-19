@@ -1,7 +1,7 @@
 <div class="container">
   	<h4>Ajouter une musique</h4>
 
-  	<form [formGroup]="addMusicForm" >
+  	<form [formGroup]="addMusicForm" novalidate (ngSubmit)="onAddMusic()">
   		<div class="row h-100">
   			<div class="col-lg-5 my-auto">
   				<div class="form-group">
@@ -14,9 +14,29 @@
   				</div>
   			</div>
   			<div class="col-lg-5 my-auto">
-  				<div class="form-group">
-					<input type="file" placeholder='Fichier' class="form-control" name="file" (change)='addFile($event)' required>
-  				</div>
+				<label for="file">Fichier</label>
+	<!-- 			<input id="file" class="form-control" type="file" formControlName="file"> -->			
+				<div class="form-theme drop-container block_cloud" ngFileDrop 
+							(uploadOutput)="onUploadOutput($event)"
+							[uploadInput]="uploadInput"
+							[ngClass]="{'drag-over': dragOver,'uploading':loading}">
+					<p class="w-100 text-center">
+						Déposer votre fichier ou
+						<label class="upload-button">
+						<input type="file" ngFileSelect name="file" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" class="form-theme" required> 
+						Sélectionner votre fichier
+						</label>
+					</p>
+					<p class="error-file" *ngIf="error">Une erreur s'est produite</p>
+					<!-- Missing preview / name file uploaded  -->
+					<p class="filename" *ngFor='let f of files'> {{f.name}} <a class="delete" (click)="removeFile(f.id)">supprimer</a></p>
+				</div>
+				<div *ngIf="loading" class="loading-group text-center">
+					<div class="loading upload">
+						<span *ngIf="progress.data">{{progress.data.percentage}}%</span>
+						<p class="loader"></p>
+					</div>
+				</div>
   			</div>
   			<div class="col-lg-5 my-auto">
   				<div class="form-group">
@@ -51,7 +71,7 @@
   			</div>
   		</div>
   		<p *ngIf="submitted" style="color: red; width: 100%">{{ error.message }}</p>
-  		<button type="button" class="btn btn-success" (click)="onAddMusic()">Créer</button>
+  		<button type="button" class="btn btn-success" type='submit' [disabled]="addMusicForm.invalid || addMusicForm.prestine">Créer</button>
   	</form>
 
 </div>
