@@ -12,7 +12,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgxUploaderModule } from 'ngx-uploader';
 
 library.add(fas);
 
@@ -33,7 +32,6 @@ import { AddCommentService } from '../services/add-comment.service';
 import { AddMusicService } from '../services/add-music.service';
 import { DownloadMusicService } from '../services/download-music.service';
 import { AddPlaylistService } from '../services/add-playlist.service';
-import { AllPlaylistsService } from '../services/all-playlists-service';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -51,7 +49,6 @@ import { AdminViewUsersComponent } from './admin/users/view/admin-view-users.com
 import { AdminEditUserComponent } from './admin/users/edit/admin-edit-user.component';
 import { AdminGenresComponent } from './admin/genres/admin-genres.component';
 import { AdminViewGenresComponent } from './admin/genres/view/admin-view-genres.component';
-import { AdminAddGenreComponent } from './admin/genres/add/admin-add-genre.component';
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
@@ -87,7 +84,6 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AdminEditUserComponent,
     AdminGenresComponent,
     AdminViewGenresComponent,
-    AdminAddGenreComponent,
     AdminMusicsComponent,
     LoginComponent,
     MusicsComponent,
@@ -109,7 +105,6 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     NgxPaginationModule,
-    NgxUploaderModule,
     HttpModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
@@ -132,8 +127,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AddCommentService,
     AddMusicService,
     DownloadMusicService,
-    AddPlaylistService,
-    AllPlaylistsService
+    AddPlaylistService
   ],
   bootstrap: [AppComponent]
 })
