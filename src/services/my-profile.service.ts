@@ -41,4 +41,29 @@ export class MyProfileService
 				)
 		})
 	}
+
+	/**
+	 *	Change user password
+	 */
+	changePassword(
+		id: number, newPassword: string
+	) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.patch(`/users/${id}`, {
+					password: newPassword
+				})
+				.subscribe(
+					(response) => {
+						this.subject.next(response.json())
+						resolve(response.json())
+					},
+					(error) => {
+						this.subject.error(error.json())
+						reject(error)
+					}
+				)
+		})
+	}
 }

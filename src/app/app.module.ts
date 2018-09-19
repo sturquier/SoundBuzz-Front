@@ -63,6 +63,7 @@ import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playl
 import { ProfileComponent } from './account/profile/profile.component'
 import { ViewProfileComponent } from './account/profile/view-profile/view-profile.component';
 import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './account/profile/change-password/change-password.component';
 // Guards
 import { LoggedInGuard } from './auth/guards/loggedIn.guard'
 import { IsAdminGuard } from './auth/guards/isAdmin.guard'
@@ -99,6 +100,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     ProfileComponent,
     ViewProfileComponent,
     EditProfileComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
