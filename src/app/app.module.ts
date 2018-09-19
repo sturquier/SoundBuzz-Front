@@ -49,6 +49,7 @@ import { AdminViewUsersComponent } from './admin/users/view/admin-view-users.com
 import { AdminEditUserComponent } from './admin/users/edit/admin-edit-user.component';
 import { AdminGenresComponent } from './admin/genres/admin-genres.component';
 import { AdminViewGenresComponent } from './admin/genres/view/admin-view-genres.component';
+import { AdminAddGenreComponent } from './admin/genres/add/admin-add-genre.component'
 import { AdminMusicsComponent } from './admin/musics/admin-musics.component';
 import { LoginComponent } from './login/login.component';
 import { MusicsComponent } from './account/musics/musics.component';
@@ -84,6 +85,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AdminEditUserComponent,
     AdminGenresComponent,
     AdminViewGenresComponent,
+    AdminAddGenreComponent,
     AdminMusicsComponent,
     LoginComponent,
     MusicsComponent,
