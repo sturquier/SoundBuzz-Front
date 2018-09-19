@@ -30,6 +30,7 @@ import { AddMusicComponent } from './account/musics/add-music/add-music.componen
 import { ProfileComponent } from './account/profile/profile.component';
 import { ViewProfileComponent } from './account/profile/view-profile/view-profile.component';
 import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './account/profile/change-password/change-password.component';
 // Guards
 import { LoggedInGuard } from './auth/guards/loggedIn.guard';
 import { IsAdminGuard } from './auth/guards/isAdmin.guard';
@@ -49,7 +50,8 @@ const routing: Routes = [
         ] },
         { path: 'profile', component: ProfileComponent, children: [
             { path: '', component: ViewProfileComponent },
-            { path: 'edit', component: EditProfileComponent }
+            { path: 'edit', component: EditProfileComponent },
+            { path: 'change-password', component: ChangePasswordComponent }
         ] }
     ]},
     { path: '', component: LandingPageComponent },
