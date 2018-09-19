@@ -3,12 +3,14 @@ import { Subject } from 'rxjs/Subject'
 import { ApiService } from './api.service'
 import { MusicModel } from '../models/music'
 import { UserModel } from '../models/user'
+import { GenreModel } from '../models/genre'
 
 @Injectable()
 export class AdminService
 {
 	musicSubject: Subject<Array<MusicModel>> = new Subject()
 	userSubject: Subject<Array<UserModel>> = new Subject()
+	genreSubject: Subject<Array<GenreModel>> = new Subject()
 
 	constructor(private apiService: ApiService) {
 
@@ -66,6 +68,47 @@ export class AdminService
 				}),
 				error => {
 					this.userSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
+
+	/**
+	 *	Delete a single genre
+	 */
+	deleteGenre(genreId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.delete(`/genres/${genreId}`)
+				.subscribe(response => {
+					this.genreSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.genreSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
+
+	/**
+	 *	Create a single genre
+	 */
+	createGenre(name: string, photo: File) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.postWithFormData('/genres', {
+					name: name,
+					photo: photo
+				})
+				.subscribe(response => {
+					this.genreSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.genreSubject.error(error.json())
 					reject(error)
 				}
 		})

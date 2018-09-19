@@ -1,0 +1,21 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Genre</th>
+			<th>Editer</th>
+			<th>Supprimer</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor='let genre of genres'>
+			<td>{{ genre.name }}</td>
+			<td>
+				<button [routerLink]="['edit', genre.id]" class="btn btn-primary"><fa-icon [icon]="pencil" size="xs"></fa-icon></button>
+			</td>
+			<td>
+				<button class="btn btn-danger" (click)="onDeleteGenre(genre.id)"><fa-icon [icon]="trash" size="xs"></fa-icon></button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<a [routerLink]="['add']" class="btn">Add genre</a>
