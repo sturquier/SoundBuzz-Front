@@ -83,7 +83,7 @@ export class MusicDetailedComponent implements OnInit {
 
 	like() {
 		this.likeMusicService.likeMusic(this.user.user.id, this.musicId)
-		this.musicDetailedService
+		this.likeMusicService
 			.subject
 			.asObservable()
 			.subscribe(like => {
@@ -125,7 +125,19 @@ export class MusicDetailedComponent implements OnInit {
 	}
 
 	addMusicToPlaylist(){
-		console.log(this.addPlaylistForm.value);
+		this.musicDetailedService.addMusicToPlaylist(
+			this.addPlaylistForm.controls.playlist.value,
+			this.addPlaylistForm.controls.music.value
+		)
+		this.musicDetailedService
+			.subject
+			.asObservable()
+			.subscribe(
+				(result) => {
+					this.router.navigate([`/account/playlists/${this.addPlaylistForm.controls.playlist.value}`])
+				},
+				(error) => { console.log(error) }
+			)
 	}
 
 	play(music) {

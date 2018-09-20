@@ -30,4 +30,25 @@ export class MusicDetailedService
 				}
 		})
 	}
+
+	/**
+	 *	Add a single music to a single playlist
+	 */
+	addMusicToPlaylist(playlistId: number, musicId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.post(`/playlists/${playlistId}/add-music`, {
+					music_id: musicId
+				})
+				.subscribe(response => {
+					this.subject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.subject.error(error.json())
+					reject(error)
+				}
+		})
+	}
 }
