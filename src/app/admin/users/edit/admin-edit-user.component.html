@@ -1,1 +1,61 @@
-<h4>Zone admin : editer xxx</h4>
+<div *ngIf='editedUser'>
+	<h4>Editer le profil de {{ editedUser.firstname }} {{ editedUser.lastname }}</h4>
+
+	<form [formGroup]="adminEditUserForm" (submit)="onAdminEditUser()">
+		<div class="row">
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="firstname">Prénom :</label>
+					<input type="text" formControlName="firstname" class="form-control" id="firstname" required [(ngModel)]="editedUser.firstname">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="lastname">Nom :</label>
+					<input type="text" formControlName="lastname" class="form-control" id="lastname" required [(ngModel)]="editedUser.lastname">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="username">Pseudo :</label>
+					<input type="text" formControlName="username" class="form-control" id="username" required [(ngModel)]="editedUser.username">
+				</div>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group">
+					<label for="email">Email :</label>
+					<input type="text" formControlName="email" class="form-control" id="email" required [(ngModel)]="editedUser.email">
+				</div>
+			</div>
+			<!-- <div class="col-lg-12 my-auto">
+				<label for="birthday">Date de naissance :</label>
+			</div>
+			<div class="col-lg-12 my-auto">
+				<div class="form-group input-group">
+					<input type="text" formControlName="birthday" class="form-control" style="float:none" placeholder="Selectionnez votre date de naissance" ngx-mydatepicker name="mydate"
+            	   	[options]="myOptions" #dp="ngx-mydatepicker" [(ngModel)]="editedUser.birthday"/>
+        			<span class="input-group-btn">
+            			<button type="button" class="btn btn-default" (click)="dp.toggleCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
+        			</span>
+				</div>
+			</div> -->
+			<div class="col-lg-12 my-auto">
+	  			<div class="form-group d-flex align-items-center">
+					<label class="col-6" for="is_active">Actif sur le site (peut se connecter) :</label>
+					<input class="form-control col-6" type="checkbox" formControlName="is_active" name="is_active" [(ngModel)]="editedUser.is_active">
+  				</div>
+  			</div>
+  			<div class="col-lg-12 my-auto">
+  				<div class="form-group d-flex align-items-center">
+  					<label class="col-6" for="role">Moderateur :</label>
+  					<input class="col-6" type="checkbox" formControlName="role" name="role" [ngModel]="checkIsModerator()">
+  				</div>
+  			</div>
+			<div class="col-lg-12 my-auto">
+				<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
+				<button type="submit" class="btn btn-success">Modifier</button>
+			</div>
+		</div>
+	</form>
+
+</div>
