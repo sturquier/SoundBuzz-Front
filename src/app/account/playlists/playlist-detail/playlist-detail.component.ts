@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MyPlaylistsService } from '../../../../services/my-playlists.service';
 import { ActivatedRoute } from '@angular/router';
+import { MyPlaylistsService } from '../../../../services/my-playlists.service';
+import { MusicPlayerService } from 'ngx-soundmanager2';
 
 @Component({
   selector: 'app-playlist-detail',
@@ -14,6 +15,7 @@ export class PlaylistDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private myPlaylistsService: MyPlaylistsService,
+    private ngxPlayerService: MusicPlayerService
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,18 @@ export class PlaylistDetailComponent implements OnInit {
     this.myPlaylistsService
       .subject
 			.asObservable()
-			.subscribe(playlist => this.playlist = playlist)
+			.subscribe(playlist => {
+        this.playlist = playlist
+        this.playlist.musics.forEach(m => {
+          m['url'] = `http://localhost:8080/uploads/musics/${m.file}`
+        });
+      })
+  }
+
+  play() {
+    console.log(this.playlist)
+    this.ngxPlayerService.addToPlaylist(this.playlist.musics)
+    this.ngxPlayerService.play()
   }
 
 }
