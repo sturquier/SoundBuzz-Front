@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { INgxMyDpOptions } from 'ngx-mydatepicker';
 import { AddMusicService } from '../../../../services/add-music.service';
 import { UploadService } from '../../../../services/upload.service';
+import { UserService } from '../../../../services/user.service'
 
 @Component({
 	selector: 'app-add-music',
@@ -15,9 +16,15 @@ export class AddMusicComponent implements OnInit {
 	myOptions: INgxMyDpOptions = {
 		dateFormat: 'yyyy-mm-dd'
 	}
+	currentUser
 
-	constructor(private formBuilder: FormBuilder, private addMusicService: AddMusicService, private uploadService: UploadService) {
-
+	constructor(
+		private formBuilder: FormBuilder, 
+		private addMusicService: AddMusicService, 
+		private uploadService: UploadService,
+		private userService: UserService,
+	) {
+		this.currentUser = this.userService.getCurrentUser()
 	}
 
 	ngOnInit() {
@@ -28,7 +35,8 @@ export class AddMusicComponent implements OnInit {
 			is_explicit: [0, Validators.required],
 			downloadable: [1, Validators.required],
 			created_at: ['', Validators.required],
-			is_active: [1, Validators.required]
+			is_active: [1, Validators.required],
+			user: this.currentUser.user.id,
 		})
 	}
 	
