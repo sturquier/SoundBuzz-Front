@@ -1,4 +1,7 @@
-<p>
-  all-musics works!
-</p>
+<div class="list-group" *ngIf='musics; else empty'> 
+  <a [routerLink]="[m.id]" class="list-group-item list-group-item-action" *ngFor='let m of musics'>{{m.title}}</a>
+</div>
+<ng-template #empty>
+  <p>Aucune musique pour l'instant</p>
+</ng-template>
 <a [routerLink]="['add']" class="btn">Add music</a>

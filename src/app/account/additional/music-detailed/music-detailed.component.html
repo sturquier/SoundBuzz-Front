@@ -1,9 +1,9 @@
 <div *ngIf='music'>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-lg-4">
 			<!--Insérer image ici-->
 		</div>
-		<div class="col-md-4">
+		<div class="col-lg-4">
 			<p><b>Musique : </b>{{ music.title }}</p>
 
 			<p><b>Artiste(s) : </b></p>
@@ -20,9 +20,9 @@
 			<p><b>Ajoutée le : </b>{{ music.transfer_at | date:"dd/MM/yyyy" }}</p>
 			<p><b>Nombre de téléchargement(s) : </b> {{ music.downloads }}</p>
 		</div>
-		<div class="col-md-4">
+		<div class="col-lg-4">
 			<div class="row">
-				<div class="col-sm-3 col-md-6 alignement action">
+				<div class="col-sm-3 col-md-6 alignement action" (click)='play(music)'>
 					Ecouter
 					<br>
 					<fa-icon [icon]="headphones" size="2x"></fa-icon>
@@ -43,22 +43,23 @@
 					<br>
 					<fa-icon [icon]="plusSquare" size="2x" (click)="activateChoicePlaylist()"></fa-icon>
 				</div>
-
-				<!--Ajouter une musique à une playlist-->
-				<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
-					Choisissez une playlist : 
-				</div>
-				<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
-					<select class="form-control" id="playlistToAdd">
-					    <option *ngFor="let playlist of myPlaylists" [value]="playlist">{{playlist.name}}</option>
-					</select>
-				</div>
-				<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
-					<button class="btn" (click)="addMusicToPlaylist(playlistToAdd)">Ajouter à la playlist</button>
-				</div>
 			</div>
 		</div>
-		<div class="mt-3 pt-3 col-md-5 col-lg-12">
+		<div class="mt-3 pt-3 col-md-12">
+			<!--Ajouter une musique à une playlist-->
+			<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
+				Choisissez une playlist : 
+			</div>
+			<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
+				<select class="form-control" id="playlistToAdd">
+					<option *ngFor="let playlist of myPlaylists" [value]="playlist">{{playlist.name}}</option>
+				</select>
+			</div>
+			<div *ngIf="choiceplaylist == true" class="col-md-6 alignement">
+				<button class="btn" (click)="addMusicToPlaylist(playlistToAdd)">Ajouter à la playlist</button>
+			</div>
+		</div>
+		<div class="mt-3 pt-3 col-md-12">
 			<h5>Commentaires</h5>
 			<ul *ngFor="let comment of music.comments">
 				<li>{{ comment.content }} par {{ comment.user.username }}</li>		

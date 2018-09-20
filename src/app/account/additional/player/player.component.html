@@ -1,13 +1,13 @@
-<div class="player row">
+<div class="player items row">
 	<div class="col-7">
-		<p *ngIf="currentPlaying" class="">
-			Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentTrackPostion | humanTime }} / {{ currentTrackDuration | humanTime }})
-		</p>
-		<p *ngIf="!currentPlaying" class="">
-			David Guetta - Son de la mort qui tue
-		</p>
-		<div class="row align-items-center">
-			<div class="col-4">
+		<div *ngIf="currentPlaying; else noPlay" class="">
+			<p><b>Lecture : {{ currentPlaying.title }}</b>
+				<!-- <span>de {{ currentPlaying.artist }}</span> -->
+			</p>
+		</div>
+		<ng-template #noPlay><b>Aucune musique en lecture</b></ng-template>
+		<div class="d-flex align-items-center justify-content-start">
+			<div class="pl-0 mr-3 col-4 d-flex justify-content-start">
 				<button class="btn btn-primary" playMusic>
 					<fa-icon [icon]="play" size="xs"></fa-icon>
 				</button>
@@ -18,7 +18,7 @@
 					<fa-icon [icon]="stop" size="xs"></fa-icon>
 				</button>
 			</div>
-			<div class="col-5 progress" style="height: 20px; width: 100%;">
+			<div class="p-0 col-7 progress" style="height: 20px; width: 100%;">
 				<div class="progress-bar progress-bar-success"
 					role="progressbar"
 					[ngStyle]="{width : progress }">
@@ -26,15 +26,20 @@
 				</div>
 			</div>
 		</div>
+	</div>	
+	<div class="col-5 d-flex" *ngIf="currentPlaying" >
+		<p>({{ currentTrackPostion | humanTime }} / {{ currentTrackDuration | humanTime }})</p>
 	</div>
-	<div class="col-5">
-		<h5 class="">Volume: {{ volume }}</h5>
-		<button class="btn btn-primary" increaseVolume>+</button>
-		<button class="btn btn-primary" decreaseVolume>-</button>
-		<button class="btn btn-primary" muteMusic>Mute ({{ mute }})</button>
-	</div>
-	<div class="col-12">
-		<button class="btn btn-primary" repeatMusic>Repeat</button>
-		<button class="btn btn-primary" clearPlaylist>Clear Playlist</button>
-	</div>
+	<div class="col-12 d-flex align-items-center mt-2 mb-2 options">
+			<p class="m-0 pr-3">Volume: {{ volume }}%</p>
+			<div class="d-flex align-items-center justify-content-start">
+				<button class="btn btn-primary" increaseVolume>+</button>
+				<button class="btn btn-primary" decreaseVolume>-</button>
+				<button class="btn btn-primary" muteMusic [ngClass]="{'mute-active': mute}">Mute</button>
+			</div>
+			<div class="pl-3 d-flex align-items-center justify-content-end">
+				<button class="btn btn-primary" repeatMusic>Repeat</button>
+				<button class="btn btn-primary" clearPlaylist>Clear Playlist</button>
+			</div>
+		</div>
 </div>

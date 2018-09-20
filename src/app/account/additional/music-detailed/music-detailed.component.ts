@@ -5,6 +5,7 @@ import { MusicModel } from '../../../../models/music';
 import { DownloadMusicService } from '../../../../services/download-music.service';
 import { MyPlaylistsService } from '../../../../services/my-playlists.service'
 import { PlaylistModel } from '../../../../models/playlist';
+import { MusicPlayerService } from 'ngx-soundmanager2';
 
 @Component({
   selector: 'music-detailed',
@@ -27,7 +28,8 @@ export class MusicDetailedComponent implements OnInit {
     	private route: ActivatedRoute,
 		private musicDetailedService: MusicDetailedService,
 		private downloadMusicService: DownloadMusicService,
-		private myPlaylistsService: MyPlaylistsService
+		private myPlaylistsService: MyPlaylistsService,
+		private ngxPlayerService: MusicPlayerService,
 	) { }
 
 	// convertMinutes(){
@@ -50,6 +52,7 @@ export class MusicDetailedComponent implements OnInit {
 			.asObservable()
 			.subscribe((music) => {
 				this.music = music
+				this.music['url'] = `http://localhost:8080/uploads/musics/${music.file}`
 			})
 	}
 
@@ -88,6 +91,12 @@ export class MusicDetailedComponent implements OnInit {
 
 	addMusicToPlaylist(value){
 		console.log(value);
+	}
+
+	play(music) {
+		console.log(music)
+		this.ngxPlayerService.addTrack(music);
+		this.ngxPlayerService.play();
 	}
 
 }

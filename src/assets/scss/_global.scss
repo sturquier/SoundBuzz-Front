@@ -54,6 +54,9 @@ a {
 	background-color: $magenta;
 }
 
+.list-group-item {
+	background-color: $lightgrey;
+}
 //style for drag and drop
 .form-theme {
 	&.drop-container {
@@ -115,6 +118,41 @@ a {
 			display: inline-block;
 			color: #AAAEB3;
 			font-size: 10px;
+		}
+	}
+}
+
+//style player
+.player {
+	&.items {
+		.btn {
+			display: flex;
+			align-items: center;
+			padding: 0.3rem 0.4rem;
+			font-size: 14px;
+			line-height: 1em;
+			fa-icon {
+				display: flex;
+			}
+			&.btn-primary {
+				background-color: $darkblue;
+				align-self: center;
+			}
+		}
+
+		.progress {
+			.progress-bar {
+				height: 20px;
+				background-color: $darkblue;
+			}
+		}
+
+		.options {
+			justify-content: space-between;
+		}
+
+		.mute-active {
+			background-color: green !important;
 		}
 	}
 }

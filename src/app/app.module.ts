@@ -70,6 +70,7 @@ import { ViewProfileComponent } from './account/profile/view-profile/view-profil
 import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
 import { UploadFileComponent } from './account/additional/upload-file/upload-file.component'
 import { ChangePasswordComponent } from './account/profile/change-password/change-password.component';
+import { MusicService } from '../services/music.service';
 
 
 @NgModule({
@@ -137,6 +138,7 @@ import { ChangePasswordComponent } from './account/profile/change-password/chang
     AddCommentService,
     AddMusicService,
     DownloadMusicService,
+    MusicService,
     AddPlaylistService,
     UploadService,
   ],
