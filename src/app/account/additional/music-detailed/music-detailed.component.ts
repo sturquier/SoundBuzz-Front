@@ -60,7 +60,6 @@ export class MusicDetailedComponent implements OnInit {
 			.subject
 			.asObservable()
 			.subscribe((like: any) => {
-				console.log(like)
 				if (like == true) {
 					this.is_liked = true
 				}
@@ -97,9 +96,6 @@ export class MusicDetailedComponent implements OnInit {
 			.subject
 			.asObservable()
 			.subscribe(like => {
-				console.log("j'ai liké ou j'ai plus liké")
-				console.log(like)
-				//boolean to set when you know the like
 				this.is_liked = !this.is_liked
 			})
 	}
@@ -151,7 +147,7 @@ export class MusicDetailedComponent implements OnInit {
 	}
 
 	play(music) {
-		console.log(music)
+		//console.log(music)
 		this.ngxPlayerService.addTrack(music);
 		this.ngxPlayerService.play();
 	}

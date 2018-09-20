@@ -1,13 +1,11 @@
 <h4>{{playlist.name}}</h4>
 <p>{{playlist.description}}</p>
 
-<div *ngIf='playlist.musics'>
-  <h5>Musiques</h5>
-  <div class="list-group" *ngIf='playlist.musics.length > 0; else empty'> 
-    <a routerLink="/account/musics/{{m.id}}" class="list-group-item list-group-item-action" *ngFor='let m of playlist.musics'>{{m.title}}</a>
-  </div>
-  <ng-template #empty>
-    <p>Aucune musique pour l'instant</p>
-  </ng-template>
+<h5>Musiques</h5>
+<div class="list-group" *ngIf='playlist.musics.length > 0; else empty'> 
+  <a routerLink="/account/musics/{{m.id}}" class="list-group-item list-group-item-action" *ngFor='let m of playlist.musics'>{{m.title}}</a>
 </div>
+<ng-template #empty>
+  <p>Aucune musique pour l'instant</p>
+</ng-template>
 
