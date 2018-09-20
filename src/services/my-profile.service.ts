@@ -17,7 +17,7 @@ export class MyProfileService
 	 */
 	editProfile(
 		id: number, firstname: string, lastname: string, 
-		username: string, email: string, birthday: string
+		username: string, email: string, //birthday: string
 	) {
 		return new Promise((resolve, reject) => {
 			this
@@ -27,7 +27,7 @@ export class MyProfileService
 					lastname: lastname,
 					username: username,
 					email: email,
-					birthday: birthday
+					// birthday: birthday
 				})
 				.subscribe(
 					(response) => {

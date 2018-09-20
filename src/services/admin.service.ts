@@ -55,6 +55,51 @@ export class AdminService
 	}
 
 	/**
+	 *	Fetch a single user
+	 */
+	loadSingleUser(userId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.get(`/users/${userId}`)
+				.subscribe(response => {
+					this.userSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.userSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
+
+	/**
+	 *	Edit a single user
+	 */
+	editSingleUser(userId: number, firstname: string, lastname: string, username: string, email: string, is_active: boolean, role: string) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.patch(`/admin/users/${userId}`, {
+					firstname: firstname,
+					lastname: lastname,
+					username: username,
+					email: email,
+					is_active: is_active,
+					role: role
+				})
+				.subscribe(response => {
+					this.userSubject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.userSubject.error(error.json())
+					reject(error)
+				}
+		})
+	}
+
+	/**
 	 *	Delete a single user
 	 */
 	deleteUser(userId: number) {

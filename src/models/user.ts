@@ -6,5 +6,6 @@ export interface UserModel
 	username: string,
 	password: string,
 	email: string,
-	birthday: string // Date ?
+	is_active?: boolean,
+	role?: string
 }

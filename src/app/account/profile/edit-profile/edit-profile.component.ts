@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit
   			lastname: ['', Validators.required],
   			username: ['', Validators.required],
   			email: ['', Validators.required],
-  			birthday: ['', Validators.required],
+  			// birthday: ['', Validators.required],
 		})
 	}
 
@@ -48,7 +48,7 @@ export class EditProfileComponent implements OnInit
 			this.editProfileForm.controls.lastname.value,
 			this.editProfileForm.controls.username.value,
 			this.editProfileForm.controls.email.value,
-			this.editProfileForm.controls.birthday.value.formatted,
+			// this.editProfileForm.controls.birthday.value.formatted,
 		)
 
 		this.myProfileService

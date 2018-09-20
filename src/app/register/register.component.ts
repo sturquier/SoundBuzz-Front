@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   			password: ['', Validators.required],
   			confirmPassword: ['', Validators.required],
   			email: ['', Validators.required],
-  			birthday: ['', Validators.required],
+  			// birthday: ['', Validators.required],
   		})
   	}
 
@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
   			this.registerForm.controls.username.value,
   			this.registerForm.controls.password.value,
   			this.registerForm.controls.email.value,
-  			this.registerForm.controls.birthday.value.formatted,
+  			// this.registerForm.controls.birthday.value.formatted,
   		)
 
   		this.registerService

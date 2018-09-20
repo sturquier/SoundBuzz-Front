@@ -4,6 +4,7 @@
 			<th>Prenom Nom</th>
 			<th>Nom d'utilisateur</th>
 			<th>Email</th>
+			<th>Role</th>
 			<th>Actif sur le site</th>
 			<th>Editer</th>
 			<th>Supprimer</th>
@@ -14,15 +15,23 @@
 			<td>{{ user.firstname }} {{ user.lastname }}</td>
 			<td>{{ user.username }}</td>
 			<td>{{ user.email }}</td>
+			<td>{{ user.role }}</td>
 			<td>{{ user.is_active }}</td>
 			<td>
-				<button [routerLink]="['edit', user.id]" class="btn btn-primary"><fa-icon [icon]="pencil" size="xs"></fa-icon></button>
+				<button class="btn btn-primary" disabled *ngIf="user.role == 'ROLE_ADMIN'; else isEditableAdmin">
+					<fa-icon [icon]="pencil" size="xs"></fa-icon>
+				</button>
+				<ng-template #isEditableAdmin>
+					<button class="btn btn-primary" [routerLink]="['edit', user.id]">
+						<fa-icon [icon]="pencil" size="xs"></fa-icon>
+					</button>
+				</ng-template>
 			</td>
 			<td>
-				<button class="btn btn-danger" disabled *ngIf="user.role == 'ROLE_ADMIN'; else isNotAdmin">
+				<button class="btn btn-danger" disabled *ngIf="user.role == 'ROLE_ADMIN'; else isDeletableAdmin">
 					<fa-icon [icon]="trash" size="xs"></fa-icon>
 				</button>
-				<ng-template #isNotAdmin>
+				<ng-template #isDeletableAdmin>
 					<button class="btn btn-danger" (click)="onDeleteUser(user.id)">
 						<fa-icon [icon]="trash" size="xs"></fa-icon>
 					</button>
