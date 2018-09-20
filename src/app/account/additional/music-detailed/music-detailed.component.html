@@ -36,7 +36,7 @@
 				<div class="col-sm-3 col-md-6 alignement action" (click)='like()'>
 					J'aime
 					<br>
-					<fa-icon [icon]="heart" size="2x"></fa-icon>
+					<fa-icon [icon]="heart" size="2x" [ngClass]='{liked: is_liked}'></fa-icon>
 				</div>
 				<div class="col-sm-3 col-md-6 alignement action" (click)="activateChoicePlaylist()">
 					Ajouter à une playlist

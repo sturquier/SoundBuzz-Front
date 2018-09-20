@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { MusicDetailedService } from '../../../../services/music-detailed.service';
 import { DownloadMusicService } from '../../../../services/download-music.service';
 import { MyPlaylistsService } from '../../../../services/my-playlists.service'
+import { LikeMusicService } from '../../../../services/like-music.service';
+import { UserService } from '../../../../services/user.service';
 import { PlaylistModel } from '../../../../models/playlist';
 import { MusicPlayerService } from 'ngx-soundmanager2';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'music-detailed',
   templateUrl: './music-detailed.component.html',
-  styleUrls: ['./music-detailed.component.css']
+  styleUrls: ['./music-detailed.component.css'],
+  providers: [UserService, LikeMusicService]
 })
 
 export class MusicDetailedComponent implements OnInit {
-	addPlaylistForm: FormGroup;
+	user: any
+	addPlaylistForm: FormGroup
   	music: any
   	myPlaylists: PlaylistModel[];
   	playlist: PlaylistModel;
@@ -24,6 +30,7 @@ export class MusicDetailedComponent implements OnInit {
 	download: string = "download";
 	heart: string = "heart";
 	plusSquare: string = "plus-square";
+	is_liked: boolean = false;
 
 	constructor(
 		private route: ActivatedRoute,
@@ -31,10 +38,12 @@ export class MusicDetailedComponent implements OnInit {
 		private musicDetailedService: MusicDetailedService,
 		private downloadMusicService: DownloadMusicService,
 		private myPlaylistsService: MyPlaylistsService,
+		private likeMusicService: LikeMusicService,
 		private ngxPlayerService: MusicPlayerService,
+		private userService: UserService,
 		private router: Router,
 	) { 
-
+		this.user = this.userService.getCurrentUser()
 	}
 
 	// convertMinutes(){
@@ -73,7 +82,16 @@ export class MusicDetailedComponent implements OnInit {
 	}
 
 	like() {
-		console.log('coucou')
+		this.likeMusicService.likeMusic(this.user.user.id, this.musicId)
+		this.musicDetailedService
+			.subject
+			.asObservable()
+			.subscribe(like => {
+				console.log("j'ai liké ou j'ai plus liké")
+				console.log(like)
+				//boolean to set when you know the like
+				this.is_liked = !this.is_liked
+			})
 	}
 	  
 	onDownloadMusic() {
