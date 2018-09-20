@@ -12,6 +12,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxUploaderModule } from 'ngx-uploader';
 
 library.add(fas);
 
@@ -32,6 +33,10 @@ import { AddCommentService } from '../services/add-comment.service';
 import { AddMusicService } from '../services/add-music.service';
 import { DownloadMusicService } from '../services/download-music.service';
 import { AddPlaylistService } from '../services/add-playlist.service';
+import { UploadService } from '../services/upload.service';
+// Guards
+import { LoggedInGuard } from './auth/guards/loggedIn.guard'
+import { IsAdminGuard } from './auth/guards/isAdmin.guard';
 // Components
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
@@ -63,10 +68,9 @@ import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playl
 import { ProfileComponent } from './account/profile/profile.component'
 import { ViewProfileComponent } from './account/profile/view-profile/view-profile.component';
 import { EditProfileComponent } from './account/profile/edit-profile/edit-profile.component';
+import { UploadFileComponent } from './account/additional/upload-file/upload-file.component'
 import { ChangePasswordComponent } from './account/profile/change-password/change-password.component';
-// Guards
-import { LoggedInGuard } from './auth/guards/loggedIn.guard'
-import { IsAdminGuard } from './auth/guards/isAdmin.guard'
+
 
 @NgModule({
   declarations: [
@@ -100,7 +104,11 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     ProfileComponent,
     ViewProfileComponent,
     EditProfileComponent,
+<<<<<<< HEAD
+    UploadFileComponent
+=======
     ChangePasswordComponent,
+>>>>>>> e7633d8918d02658e4d42b7ae3dc065e3ea29267
   ],
   imports: [
     BrowserModule,
@@ -109,6 +117,7 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     FontAwesomeModule,
     NgxSoundmanager2Module.forRoot(),
     NgxPaginationModule,
+    NgxUploaderModule,
     HttpModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
@@ -131,7 +140,8 @@ import { IsAdminGuard } from './auth/guards/isAdmin.guard'
     AddCommentService,
     AddMusicService,
     DownloadMusicService,
-    AddPlaylistService
+    AddPlaylistService,
+    UploadService
   ],
   bootstrap: [AppComponent]
 })
