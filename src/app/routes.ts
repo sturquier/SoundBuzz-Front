@@ -16,6 +16,7 @@ import { HomeComponent } from './account/home/home.component';
 import { PlaylistsComponent } from './account/playlists/playlists.component';
 import { AllPlaylistsComponent } from './account/playlists/all-playlists/all-playlists.component';
 import { AddPlaylistComponent } from './account/playlists/add-playlist/add-playlist.component';
+import { PlaylistDetailComponent } from './account/playlists/playlist-detail/playlist-detail.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 import { RegisterComponent } from './register/register.component';
@@ -41,6 +42,8 @@ const routing: Routes = [
     	{ path: 'playlists', component: PlaylistsComponent, children: [
             { path: '', component: AllPlaylistsComponent },
             { path: 'add', component: AddPlaylistComponent },
+            { path: ':id', component: PlaylistDetailComponent }
+
         ] },
     	{ path: 'genres/:slug', component: MusicsByGenreComponent },
     	{ path: 'musics', component: MusicsComponent, children: [

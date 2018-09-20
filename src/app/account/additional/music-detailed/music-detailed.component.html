@@ -61,10 +61,10 @@
 		</div>
 		<div class="mt-3 pt-3 col-md-12">
 			<h5>{{music.comments.length}} 
-				<span *ngIf='music.comments.length >= 2; else plural'>
+				<span *ngIf='music.comments.length >= 2; else single'>
 					Commentaires
 				</span>
-				<ng-template #plural>Commentaire</ng-template>
+				<ng-template #single>Commentaire</ng-template>
 			</h5>
 			<ul *ngFor="let comment of music.comments">
 				<li>{{ comment.content }} par {{ comment.user.username }}</li>		

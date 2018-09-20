@@ -71,6 +71,7 @@ import { EditProfileComponent } from './account/profile/edit-profile/edit-profil
 import { UploadFileComponent } from './account/additional/upload-file/upload-file.component'
 import { ChangePasswordComponent } from './account/profile/change-password/change-password.component';
 import { MusicService } from '../services/music.service';
+import { PlaylistDetailComponent } from './account/playlists/playlist-detail/playlist-detail.component';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import { MusicService } from '../services/music.service';
     EditProfileComponent,
     UploadFileComponent,
     ChangePasswordComponent,
+    PlaylistDetailComponent,
   ],
   imports: [
     BrowserModule,

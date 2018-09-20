@@ -1,11 +1,9 @@
-<h4>Mes playlists</h4>
-<hr>
-<ul *ngFor='let playlist of myPlaylists'>
-	<li>{{ playlist.name }}</li>
-	<!-- <p>{{ playlist|json }}</p> -->
-	<ul *ngFor='let music of playlist.musics'>
-		<li>{{ music.title }} ------- {{ music.duration }} secondes</li>
-	</ul>
-</ul>
-
+<div *ngIf='myPlaylists'>
+	<div class="list-group" *ngIf='myPlaylists.length > 0; else empty'> 
+		<a [routerLink]="[p.id]" class="list-group-item list-group-item-action" *ngFor='let p of myPlaylists'>{{p.name}}</a>
+	</div>
+	<ng-template #empty>
+	<p>Aucune playlist pour l'instant</p>
+	</ng-template>
+</div>
 <a [routerLink]="['add']" class="btn">Ajouter playlist</a>
