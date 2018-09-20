@@ -6,6 +6,7 @@
 </ul> -->
 <div class="row">
 	<span class="col-3" *ngFor='let genre of genres'>
+		<img src="{{ genre.url }}" width="200" height="200" style="margin: 20px;">
 		<a [routerLink]="['/account/genres', genre.slug]">	
 			{{ genre.name }}
 		</a> 

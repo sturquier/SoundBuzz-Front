@@ -6,7 +6,7 @@ import { GenreModel } from '../models/genre'
 @Injectable()
 export class HomeService
 {
-	subject: Subject<Array<GenreModel>> = new Subject()
+	subject: any = new Subject()
 
 	constructor(private apiService: ApiService) {
 
