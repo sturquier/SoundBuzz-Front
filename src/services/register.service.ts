@@ -17,7 +17,7 @@ export class RegisterService
 	 */
 	registerUser(
 		firstname: string, lastname: string, username: string,
-		password: string, email: string, birthday: string
+		password: string, email: string, //birthday: string
 	) {
 		return new Promise((resolve, reject) => {
 			this
@@ -28,7 +28,7 @@ export class RegisterService
 					username: username,
 					password: password,
 					email: email,
-					birthday: birthday
+					// birthday: birthday
 				})
 				.subscribe(
 					(response) => {

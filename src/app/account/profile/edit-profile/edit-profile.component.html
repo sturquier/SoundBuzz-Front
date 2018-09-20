@@ -28,7 +28,7 @@
 					<input type="text" formControlName="email" class="form-control" id="email" required [(ngModel)]="currentUser.user.email">
 				</div>
 			</div>
-			<div class="col-lg-12 my-auto">
+			<!-- <div class="col-lg-12 my-auto">
 				<label for="birthday">Date de naissance :</label>
 			</div>
 			<div class="col-lg-12 my-auto">
@@ -39,7 +39,7 @@
             			<button type="button" class="btn btn-default" (click)="dp.toggleCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
         			</span>
 				</div>
-			</div>
+			</div> -->
 			<div class="col-lg-12 my-auto">
 				<p *ngIf="submitted" style="color:red; width: 100%;">{{ error.message }}</p>
 				<button type="submit" class="btn btn-success">Modifier</button>
