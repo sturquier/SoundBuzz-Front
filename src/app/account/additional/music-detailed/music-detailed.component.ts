@@ -55,6 +55,16 @@ export class MusicDetailedComponent implements OnInit {
 			this.musicId = params.id
 		})
 		this.choiceplaylist = false;
+		this.likeMusicService.checkIfUserHasLikedMusic(this.user.user.id, this.musicId) 
+		this.likeMusicService
+			.subject
+			.asObservable()
+			.subscribe((like: any) => {
+				console.log(like)
+				if (like == true) {
+					this.is_liked = true
+				}
+			})
 		this.addPlaylistForm = this.formBuilder.group({
 			music: [this.musicId, Validators.required],
 			playlist: ['', Validators.required],
