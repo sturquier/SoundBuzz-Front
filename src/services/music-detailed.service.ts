@@ -6,7 +6,7 @@ import { MusicModel } from '../models/music'
 @Injectable()
 export class MusicDetailedService
 {
-	subject: Subject<Array<MusicModel>> = new Subject()
+	subject: any = new Subject()
 
 	constructor(private apiService: ApiService) {
 

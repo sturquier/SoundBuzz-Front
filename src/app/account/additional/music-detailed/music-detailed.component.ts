@@ -14,7 +14,7 @@ import { MusicPlayerService } from 'ngx-soundmanager2';
 })
 
 export class MusicDetailedComponent implements OnInit {
-  	music: MusicModel[];
+  	music: any
   	myPlaylists: PlaylistModel[];
   	playlist: PlaylistModel;
   	choiceplaylist: boolean;
@@ -40,7 +40,7 @@ export class MusicDetailedComponent implements OnInit {
     	this.route.params.subscribe(params => {
 			this.musicId = params.id
 		})
-		this.choiceplaylist=false;
+		this.choiceplaylist = false;
 		this.loadSingleMusic()
 		this.addInPlaylist()
 	}
@@ -51,8 +51,15 @@ export class MusicDetailedComponent implements OnInit {
 			.subject
 			.asObservable()
 			.subscribe((music) => {
-				this.music = music
-				this.music['url'] = `http://localhost:8080/uploads/musics/${music.file}`
+				if (music) {
+					this.music = music
+					this.music['url'] = `http://localhost:8080/uploads/musics/${music.file}`
+				}
+				// this.music = music
+				// if (music.file && typeof music.file !== 'string') {
+				// 	this.music['url'] = `http://localhost:8080/uploads/musics/${music.file}`
+				// }
+				
 			})
 	}
 
