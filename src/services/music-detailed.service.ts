@@ -51,4 +51,23 @@ export class MusicDetailedService
 				}
 		})
 	}
+
+	/**
+	 *	Delete a single music
+	 */
+	deleteMusic(musicId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.delete(`/musics/${musicId}`)
+				.subscribe(response => {
+					this.subject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.subject.error(error.json())
+					reject(error)
+				}
+		})
+	}
 }

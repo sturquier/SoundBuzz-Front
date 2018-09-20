@@ -156,4 +156,23 @@ export class MusicDetailedComponent implements OnInit {
 		this.ngxPlayerService.play();
 	}
 
+	checkOwnerId() {
+		return this.user.user.id === this.music.user.id
+	}
+
+	onDeleteMusic() {
+		if (confirm("Etes vous sur de supprimer votre musique ?")) {
+			this.musicDetailedService.deleteMusic(this.music.id)
+			this.musicDetailedService
+				.subject
+				.asObservable()
+				.subscribe(
+					(result) => {
+						this.router.navigate(['/account/musics'])
+					},
+					(error) => { console.log(error) }
+				)
+		}
+	}
+
 }
