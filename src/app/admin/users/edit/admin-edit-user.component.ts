@@ -4,7 +4,6 @@ import { Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { INgxMyDpOptions, IMyDateModel } from 'ngx-mydatepicker'
 import { AdminService } from '../../../../services/admin.service'
-import { UserModel } from '../../../../models/user'
 
 @Component({
 	selector: 'admin-edit-user',
@@ -14,7 +13,7 @@ import { UserModel } from '../../../../models/user'
 export class AdminEditUserComponent implements OnInit {
 
 	editedUserId: number
-	editedUser: UserModel[]
+	editedUser
 	adminEditUserForm: FormGroup
 	error = ""
 	submitted = false
