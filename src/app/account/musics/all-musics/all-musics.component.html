@@ -1,5 +1,7 @@
-<div class="list-group" *ngIf='musics; else empty'> 
-  <a [routerLink]="[m.id]" class="list-group-item list-group-item-action" *ngFor='let m of musics'>{{m.title}}</a>
+<div *ngIf='musics'>
+  <div class="list-group" *ngIf='musics.length > 0; else empty'> 
+    <a [routerLink]="[m.id]" class="list-group-item list-group-item-action" *ngFor='let m of musics'>{{m.title}}</a>
+  </div>
 </div>
 <ng-template #empty>
   <p>Aucune musique pour l'instant</p>

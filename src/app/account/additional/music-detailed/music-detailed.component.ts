@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MusicDetailedService } from '../../../../services/music-detailed.service';
-import { MusicModel } from '../../../../models/music';
 import { DownloadMusicService } from '../../../../services/download-music.service';
 import { MyPlaylistsService } from '../../../../services/my-playlists.service'
 import { PlaylistModel } from '../../../../models/playlist';
 import { MusicPlayerService } from 'ngx-soundmanager2';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'music-detailed',
@@ -14,6 +14,7 @@ import { MusicPlayerService } from 'ngx-soundmanager2';
 })
 
 export class MusicDetailedComponent implements OnInit {
+	addPlaylistForm: FormGroup;
   	music: any
   	myPlaylists: PlaylistModel[];
   	playlist: PlaylistModel;
@@ -25,12 +26,16 @@ export class MusicDetailedComponent implements OnInit {
 	plusSquare: string = "plus-square";
 
 	constructor(
-    	private route: ActivatedRoute,
+		private route: ActivatedRoute,
+		private formBuilder: FormBuilder, 
 		private musicDetailedService: MusicDetailedService,
 		private downloadMusicService: DownloadMusicService,
 		private myPlaylistsService: MyPlaylistsService,
 		private ngxPlayerService: MusicPlayerService,
-	) { }
+		private router: Router,
+	) { 
+
+	}
 
 	// convertMinutes(){
 	// 	return Math.floor(this.music.duration /60);
@@ -41,8 +46,12 @@ export class MusicDetailedComponent implements OnInit {
 			this.musicId = params.id
 		})
 		this.choiceplaylist = false;
+		this.addPlaylistForm = this.formBuilder.group({
+			music: [this.musicId, Validators.required],
+			playlist: ['', Validators.required],
+		})
 		this.loadSingleMusic()
-		this.addInPlaylist()
+		this.loadPlaylists()
 	}
 
 	loadSingleMusic() {
@@ -63,10 +72,6 @@ export class MusicDetailedComponent implements OnInit {
 			})
 	}
 
-	addToPlaylist() {
-		console.log('coucou')
-	}
-
 	like() {
 		console.log('coucou')
 	}
@@ -84,20 +89,25 @@ export class MusicDetailedComponent implements OnInit {
 			)
 	}
 
-	addInPlaylist(){
+	loadPlaylists(){
 		this.myPlaylistsService.loadUserPlaylists()
  		this.myPlaylistsService
  			.subject
  			.asObservable()
- 			.subscribe(myPlaylists => this.myPlaylists = myPlaylists)
+			.subscribe(myPlaylists => this.myPlaylists = myPlaylists)
+		console.log(this.myPlaylists)
 	}
 
 	activateChoicePlaylist(){
-		this.choiceplaylist = !this.choiceplaylist;
+		if (this.myPlaylists == undefined || this.myPlaylists.length == 0) {
+			this.router.navigate(['/account/playlists/add'])
+		} else {
+			this.choiceplaylist = !this.choiceplaylist
+		}
 	}
 
-	addMusicToPlaylist(value){
-		console.log(value);
+	addMusicToPlaylist(){
+		console.log(this.addPlaylistForm.value);
 	}
 
 	play(music) {
