@@ -1,5 +1,7 @@
 <div *ngIf='music'>
 	<div class="row">
+		<div class="col-lg-10"></div>
+		<div class="col-lg-2"><button *ngIf="checkOwnerId()" class="btn btn-danger" (click)="onDeleteMusic()">Supprimer</button></div>
 		<div class="col-lg-4">
 			<!--Insérer image ici-->
 		</div>
