@@ -33,4 +33,25 @@ export class LikeMusicService
 				}
 		})
 	}
+
+	/**
+	 *	Check if a single user has already liked a single music
+	 *	If yes => return true
+	 *	If no => return false
+	 */
+	checkIfUserHasLikedMusic(userId: number, musicId: number) {
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.get(`/users/${userId}/has_liked/${musicId}`)
+				.subscribe(response => {
+					this.subject.next(response.json())
+					resolve(response.json())
+				}),
+				error => {
+					this.subject.error(error.json())
+					reject(error)
+				}
+		})
+	}
 }
