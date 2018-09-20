@@ -104,11 +104,8 @@ import { ChangePasswordComponent } from './account/profile/change-password/chang
     ProfileComponent,
     ViewProfileComponent,
     EditProfileComponent,
-<<<<<<< HEAD
-    UploadFileComponent
-=======
+    UploadFileComponent,
     ChangePasswordComponent,
->>>>>>> e7633d8918d02658e4d42b7ae3dc065e3ea29267
   ],
   imports: [
     BrowserModule,
@@ -141,7 +138,7 @@ import { ChangePasswordComponent } from './account/profile/change-password/chang
     AddMusicService,
     DownloadMusicService,
     AddPlaylistService,
-    UploadService
+    UploadService,
   ],
   bootstrap: [AppComponent]
 })
