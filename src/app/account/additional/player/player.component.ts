@@ -34,8 +34,9 @@ export class PlayerComponent implements OnInit {
 			this.mute = event.data;
 		});
 
-	    // Subscribe for track changes
-	    this.currentPlaying = this._musicPlayerService.currentTrackData();
+		// Subscribe for track changes
+		this.currentPlaying = this._musicPlayerService.currentTrackData();
+		console.log(this.currentPlaying)
 	    this._musicPlayerTrackIdSubscription = this._musicPlayerService.musicPlayerTrackEventEmitter
 	    .subscribe((event: any) => {
 	    	this.currentPlaying = this._musicPlayerService.currentTrackData();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { LoginService } from '../../../../services/login.service'
 import { UserService } from '../../../../services/user.service'
+import { MusicPlayerService } from 'ngx-soundmanager2';
 
 @Component({
 	selector: 'app-aside',
@@ -16,7 +17,8 @@ export class AsideComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private loginService: LoginService,
-		private userService: UserService
+		private userService: UserService,
+		private ngxPlayerService: MusicPlayerService
 	) { }
 
 	ngOnInit() {
@@ -31,6 +33,7 @@ export class AsideComponent implements OnInit {
 			.subscribe(() => {
 				localStorage.removeItem('currentUser')
 				this.userService.setCurrentUser(null)
+				this.ngxPlayerService.musicPlayerEventEmitter.emit(null)
 				this.router.navigate(['/'])
 			})
 	}

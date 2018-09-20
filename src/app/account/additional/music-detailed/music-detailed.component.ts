@@ -14,7 +14,7 @@ import { MusicPlayerService } from 'ngx-soundmanager2';
 })
 
 export class MusicDetailedComponent implements OnInit {
-  	music: MusicModel[]
+  	music: MusicModel[];
   	myPlaylists: PlaylistModel[];
   	playlist: PlaylistModel;
   	choiceplaylist: boolean;
