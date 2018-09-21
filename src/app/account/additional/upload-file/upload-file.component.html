@@ -5,7 +5,7 @@
 	<p class="w-100 text-center">
 		Déposer votre fichier ou
 		<label class="upload-button">
-		<input type="file" ngFileSelect name="file" accept='audio/*' (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadService.uploadInput" class="form-theme" required> 
+		<input type="file" ngFileSelect [name]='name' [accept]='type' (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadService.uploadInput" class="form-theme" required> 
 		Sélectionner votre fichier
 		</label>
 	</p>

@@ -7,15 +7,28 @@
   				<div class="form-group">
 					<input type="text" placeholder='Titre' formControlName="title" class="form-control" name="title" required>
   				</div>
-  			</div>
+			</div>
   			<div class="col-lg-5 my-auto">
   				<div class="form-group">
 					<input type="text" placeholder='Description' formControlName="description" class="form-control" name="description" required>
   				</div>
-  			</div>
+			</div>
+			<!-- <div class="col-lg-5 my-auto">
+				<div class="form-group">
+					<form [formGroup]="addArtist" novalidate (ngSubmit)='addArtistToForm()'>
+						<select class="form-control" name="artists" formControlName="artist">
+							<option *ngFor="let artist of artists" [ngValue]='artist.id'>{{artist.name}}</option>
+						</select>
+						<input name='type' formControlName="type" type="radio" [value]='1'> Compositeur
+						<input name='type' formControlName="type" type="radio" [value]='2'> Chanteur
+						<input name='type' formControlName="type" type="radio" [value]='3'> Les deux
+						<button class="btn" type='submit'>Ajouter comme artiste</button>
+					</form>
+				</div>
+			</div> -->
   			<div class="col-lg-5 my-auto">
 	<!-- 			<input id="file" class="form-control" type="file" formControlName="file"> -->			
-					<app-upload-file [form]='addMusicForm' [route]='"account/musics"' [url]='"/musics"' [name]='"file"'
+					<app-upload-file [type]='"audio/*"' [form]='addMusicForm' [route]='"account/musics"' [url]='"/musics"' [name]='"file"'
 					></app-upload-file>
   			</div>
   			<div class="col-lg-5 my-auto">

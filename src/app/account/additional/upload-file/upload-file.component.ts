@@ -18,6 +18,7 @@ export class UploadFileComponent implements OnInit {
   @Input() name;
   @Input() url;
 	@Input() route;
+	@Input() type;
   options: UploaderOptions;
 	loading: boolean = false;
 	formData: FormData;

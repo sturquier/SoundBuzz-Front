@@ -12,11 +12,14 @@ import { UserService } from '../../../../services/user.service'
 })
 export class AddMusicComponent implements OnInit {
 	addMusicForm: FormGroup;
+	addArtist: FormGroup;
 	submitted = false;
 	myOptions: INgxMyDpOptions = {
 		dateFormat: 'yyyy-mm-dd'
 	}
 	currentUser
+	artists: any
+	tab = []
 
 	constructor(
 		private formBuilder: FormBuilder, 
@@ -30,6 +33,7 @@ export class AddMusicComponent implements OnInit {
 	ngOnInit() {
 		this.addMusicForm = this.formBuilder.group({
 			title: ['', Validators.required],
+			//artists: null,
 			description: ['', Validators.required],
 			file: [null, Validators.required],
 			is_explicit: [0, Validators.required],
@@ -38,6 +42,22 @@ export class AddMusicComponent implements OnInit {
 			is_active: [1, Validators.required],
 			user: this.currentUser.user.id,
 		})
+
+		this.addArtist = this.formBuilder.group({
+			artist: [null, Validators.required],
+			type: ['', Validators.required],
+		})
+
+		this.addMusicService.getArtists()
+		this.addMusicService
+			.subject
+			.asObservable()
+			.subscribe(
+				(artists: any) => {
+					this.artists = artists
+					console.log(this.artists)
+				}
+			)
 	}
 	
 	// addFile(event) {
@@ -59,8 +79,14 @@ export class AddMusicComponent implements OnInit {
 	// 	console.log(this.addMusicForm.value)
 	// }
 
+	addArtistToForm() {
+		this.tab.push(this.addArtist.value)
+		console.log(this.tab)
+	}
+
 	onAddMusic() {
 		this.addMusicForm.controls['created_at'].setValue(this.addMusicForm.controls.created_at.value.formatted)
+		//this.addMusicForm.controls['artists'].setValue(this.tab)
 		console.log(this.addMusicForm.value)
 		this.uploadService.startUpload("/musics",this.addMusicForm);	
 	}

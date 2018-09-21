@@ -34,4 +34,26 @@ export class AddMusicService
 				)
 		})
 	}
+
+	/**
+	 * 	Create a single music 
+	 */
+	getArtists() {
+		
+		return new Promise((resolve, reject) => {
+			this
+				.apiService
+				.get('/artists')
+				.subscribe(
+					(response) => {
+						this.subject.next(response.json())
+						resolve(response.json())
+					},
+					(error) => {
+						this.subject.error(error.json())
+						reject(error)
+					}
+				)
+		})
+	}
 }
