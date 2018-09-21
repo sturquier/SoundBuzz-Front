@@ -53,6 +53,12 @@ export class PlayerComponent implements OnInit {
 	    });
 	}
 
+	clear() {
+		this._musicPlayerService.clearPlaylist()
+		this._musicPlayerService.resetProgress()
+		this._musicPlayerService.musicPlayerTrackEventEmitter.emit(null)
+	}
+
 	get progress(): string {
 		return this.currentTrackProgress ? (this.currentTrackProgress.toString() + '%') : '0%';
 	}
